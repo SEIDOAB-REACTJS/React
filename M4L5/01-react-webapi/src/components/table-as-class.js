@@ -36,7 +36,7 @@ class TableAsClass extends React.Component {
 //https://reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper
 TableAsClass.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string),
-  initialData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  initialData: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default TableAsClass;

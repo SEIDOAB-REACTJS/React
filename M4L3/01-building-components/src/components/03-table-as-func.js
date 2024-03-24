@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-export default function TableAsFunc(props)
+export default function TableAsFunc03(props)
 {
   const data = props.initialData;
 
@@ -32,7 +32,7 @@ export default function TableAsFunc(props)
 
 //using React prop types to make the data more type secure
 //https://reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper
-TableAsFunc.propTypes = {
+TableAsFunc03.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string),
   initialData: PropTypes.arrayOf(PropTypes.object),
 };

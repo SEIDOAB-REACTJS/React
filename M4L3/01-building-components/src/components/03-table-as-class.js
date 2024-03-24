@@ -1,10 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import PropTypes from 'prop-types';
 
-import './App.css';
-
-class Excel06 extends React.Component {
+class TableAsClass03 extends React.Component {
   constructor(props) {
     super();
     this.state = { data: props.initialData };
@@ -21,12 +18,14 @@ class Excel06 extends React.Component {
         </thead>
         <tbody>
           {this.state.data.map((row, idx) => (
-            <tr key={idx}>
-              {row.map((cell, idx) => (
+
+            //assign the id to the row and the eventhandler from props
+            <tr key={row.id} data-rowitemid={row.id} onDoubleClick={this.props.onDoubleClick}>
+              {row.data.map((cell, idx) => (
                 <td key={idx}>{cell}</td>
               ))}
             </tr>
-          ))}
+            ))}
         </tbody>
       </table>
     );
@@ -35,9 +34,9 @@ class Excel06 extends React.Component {
 
 //using React prop types to make the data more type secure
 //https://reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper
-Excel06.propTypes = {
+TableAsClass03.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string),
-  initialData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  initialData: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default Excel06;
+export default TableAsClass03;
