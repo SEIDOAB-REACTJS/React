@@ -94,6 +94,11 @@ class musicService {
     }
     //#endregion
 
+    async readInfoAsync() 
+    {
+      return await this.#_myFetch(`${this.url}/csAdmin/Info`);
+    }
+
     //#region CRUD MusicGroup
     //using traditional function syntax (like in C#)
     async readMusicGroupsAsync(pageNr, flat=false, filter=null, pageSize=10) 
