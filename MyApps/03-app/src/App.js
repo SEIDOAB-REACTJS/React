@@ -23,11 +23,11 @@ export default App;
 
 /* Exercises
 
-1. Use parameter passing to page component Abums from the Menu to have the menuitems
+1. Use parameter passing to page component Albums from the Menu to have the menuitems
    Albums with love -> preset the search filter to love
    Rockalbums -> preset the search filter to rock
 
-   A click on the seach button shall then list the corresponding albums
+   A click on the search button shall then list the corresponding albums
 
 2. Modify page component Albums by using useEffect so the page is also initially showing 
    albums with love respective rockalbums. I.e. without needing to press the search button.
