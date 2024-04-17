@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import musicService from '../services/music-group-service';
 import {FormSearch} from './12-form-search';
 
-export function SearchPage12a() {
+export function SearchInPage12a() {
 
     const [albums, setAlbums] = useState({});
 

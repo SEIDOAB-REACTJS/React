@@ -34,7 +34,7 @@ export function SearchInModal12a() {
         <ul>
           {albums.pageItems?.map((a) => <li>{a.name}</li>)}          
         </ul>
-        <Button variant="primary" onClick={showModal}>Edit details</Button>
+        <Button variant="primary" onClick={showModal}>Search</Button>
         <FormSearchModal searchFilter="" show={show} setShow={setShow} onSave={onSave} onUndo={onUndo}/>
 
       </>

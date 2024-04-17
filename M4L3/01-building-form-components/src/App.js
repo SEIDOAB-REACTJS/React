@@ -18,7 +18,7 @@ import {FormAnimal09b} from './components/09b-form-animal';
 import {AnimalPage10} from './components/10-form-animal-in-page';
 import {AnimalPage10a} from './components/10a-form-animal-in-page';
 import {AnimalInModal11a} from './components/11a-form-animal-in-modal';
-import {SearchPage12a} from './components/12a-search-in-page';
+import {SearchInPage12a} from './components/12a-search-in-page';
 import {SearchInModal12a} from './components/12b-search-in-modal';
 
 import './App.css';
@@ -56,26 +56,29 @@ function App() {
 
     return (
       <>
-            <SearchInModal12a/>
+        <SearchInModal12a/>
       </>
     );
   }
 /*
-       <Form01 onSave={onSave} onUndo={onUndo}/>
-       <FormUncontrolled02 onSave={onSave} onUndo={onUndo}/>
-       <FormControlled03 friend={person} onSave={onSave} onUndo={onUndo}/>
-       <FormHandleChange04 friend={person} onSave={onSave} onUndo={onUndo}/>
-       <FormValidation05 friend={person} onSave={onSave} onUndo={onUndo}/>
+      <Form01 onSave={onSave} onUndo={onUndo}/>
+      <FormUncontrolled02 onSave={onSave} onUndo={onUndo}/>
+      <FormControlled03 friend={person} onSave={onSave} onUndo={onUndo}/>
+      <FormHandleChange04 friend={person} onSave={onSave} onUndo={onUndo}/>
+      <FormValidation05 friend={person} onSave={onSave} onUndo={onUndo}/>
 
-       <UseFormInPage06/>
+      <UseFormInPage06/>
 
-       <UseBootstrapModal07/>
+      <UseBootstrapModal07/>
        
-       <UseFormInModal08a/>
+      <UseFormInModal08a/>
 
-             <FormAnimal09 animal={animal} onSave={onSaveAnimal} onUndo={onUndo}/> 
-                   <AnimalPage10/> 
-                         <AnimalPage10a/> 
+      <FormAnimal09 animal={animal} onSave={onSaveAnimal} onUndo={onUndo}/> 
+      <AnimalPage10/> 
+      <AnimalPage10a/> 
 
-       */
+      <SearchInPage12a/>
+      <SearchInModal12a/>
+
+*/
 export default App;
