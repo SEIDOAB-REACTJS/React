@@ -34,7 +34,7 @@ export function NavMenu() {
                 <NavDropdown.Item>Albums with love</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/albums" >
-                <NavDropdown.Item>Rock albums</NavDropdown.Item>
+                <NavDropdown.Item>Rockalbums</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
           </Nav>
