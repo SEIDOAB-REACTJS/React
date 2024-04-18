@@ -14,11 +14,14 @@ export function AppRouter() {
         <Route path="/animals" element={<Animals/>}/>
 
         <Route path="/albums" element={<Albums/>}/>
-        <Route path="/albums/:searchFilter" element={<Albums/>}/>
+       
         
-        <Route path="/albums/:searchFilter" render={(props) => (
-            <Albums key={props.match.params.pageid} {...props} />)} />
+        <Route path="/albums/:searchFilter" element={<Albums/>}/>
+  */
 
     </Routes>
   )
+  /*
+   <Route path="/albums/:searchFilter" element={<Albums key={Math.random()}/>}/>
+  */
 }
