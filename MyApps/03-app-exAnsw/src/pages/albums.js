@@ -8,10 +8,20 @@ export function Albums(props) {
   const {searchFilter}  = useParams();
   const [albums, setAlbums] = useState({});
   const [filter, setFilter] = useState(searchFilter || "");
-
+ 
+  //Needed if param update only with react-router as
+  //react-router do not rerender if only param has changed
   useEffect(() => {
-    //Re initialize your component with new url parameter
-    //setFilter(searchFilter);
+
+    //To pre-load with filtered albums 
+    (async ()=> {
+      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const a = await service.readAlbumsAsync (0, true, searchFilter);
+      setAlbums(a);
+    })();
+   
+   //readWebApi();
+   setFilter(searchFilter);
   }, [searchFilter]);
 
   
@@ -25,6 +35,7 @@ export function Albums(props) {
       const a = await service.readAlbumsAsync (0, true, e.searchFilter);
 
       setAlbums(a);
+      setFilter(e.searchFilter);
     }  
 
     const onUndo = (e) => 

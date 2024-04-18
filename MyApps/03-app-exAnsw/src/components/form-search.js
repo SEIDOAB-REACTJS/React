@@ -1,10 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export function FormSearch(props) {
 
   const [searchFilter, setSearchFilter] = useState(props.searchFilter || "");
+
+  //Needed if param update only with react-router as
+  //react-router do not rerender if only param has changed
+  useEffect(() => {
+
+    setSearchFilter(props.searchFilter);
+  }, [props]);
+
 
   const handleChange = (e) => {
 
