@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {PencilSquare, ArrowCounterclockwise} from 'react-bootstrap-icons'
 import { Outlet, useParams, useNavigate, useOutletContext } from 'react-router-dom';
 import { uniqueId, seedGenerator } from '../services/seido-helpers';
@@ -83,16 +83,16 @@ export function FriendsEditValView() {
 
     //React state lifting. The person is state in FriendsEditEdit and passed as props to FriendDetailsEdit
     const p = seededData.find((item) => item.id === id);
-    const [person, setPerson] = useState(p);
 
-    if(!person) {
+    if(!p) {
       return <span>The person doesn't exist.</span>;
     }
 
     const onSave = (e) => 
     {
       const idx = seededData.findIndex((item) => item.id === id);
-      seededData[idx] = person;
+      seededData[idx] = e.friend;
+      
       navigate(`/friends-edit-val/${id}`);
     }  
 
@@ -103,7 +103,7 @@ export function FriendsEditValView() {
 
     return (
       <>
-        <FriendDetailsEditValidation friend={person} setFriend={setPerson} onSave={onSave} onUndo={onUndo}/>
+        <FriendDetailsEditValidation friend={p} onSave={onSave} onUndo={onUndo}/>
       </>
     );
   }
