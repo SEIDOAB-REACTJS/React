@@ -30,6 +30,7 @@ export function AlbumsWebApiList() {
         const data = await service.readAlbumsAsync(0);
         setServiceData(data);
      }
+     
      readWebApi();
   }, [service])
   //#endregion

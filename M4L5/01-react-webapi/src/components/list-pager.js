@@ -9,8 +9,9 @@ function ListPager(props) {
   const onPageChange = (e) => 
   {
     const curPage = e.target.dataset.pagenr;
-    props.setCurrentPage(curPage);
-    props.onPageChange({currentPage: curPage});
+
+    e.currentPage = curPage;
+    props.onPageChange(e);
   }
 
   const onPageNext = (e) => 
@@ -18,8 +19,8 @@ function ListPager(props) {
     const curPage = Number(props.currentPage);
     if (curPage < props.maxNrPages)
     {
-        props.setCurrentPage(curPage + 1);
-        props.onPageChange({currentPage: curPage + 1});
+        e.currentPage = curPage + 1;
+        props.onPageChange(e);
       }
   }
 
@@ -28,7 +29,6 @@ function ListPager(props) {
     const curPage = Number(props.currentPage);
     if (curPage > 0)
     {
-        props.setCurrentPage(curPage - 1);
         props.onPageChange({currentPage: curPage - 1});
       }
   }

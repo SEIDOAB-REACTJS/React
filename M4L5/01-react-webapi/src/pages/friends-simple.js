@@ -11,7 +11,7 @@ export function FriendsSimple()
   return (
     <div className="container px-4 py-4 text-start">
 
-        <h2 className="pb-2 border-bottom">My friends</h2>
+        
         <Outlet  context={seededData}/>
 
     </div>
@@ -30,6 +30,7 @@ export function FriendsSimpleList() {
 
   return (
     <>
+      <h2 className="pb-2 border-bottom">My friends</h2>
       <FriendList friends={seededData} onClick={onView}/>
     </>
   );

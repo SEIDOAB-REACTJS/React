@@ -33,7 +33,7 @@ export function FriendsSimplePagerList() {
   //paging dimensions
   const pageSize = 5;
   const maxNrPages = Math.ceil(seededData.length/pageSize);
-  const nrVisiblePages = 10;
+  const nrVisiblePages = 3;
 
   //state manegement so List is re-render when state->props change
   const [currentPage, setCurrentPage] = useState(pageNr);
@@ -44,6 +44,7 @@ export function FriendsSimplePagerList() {
   {
     const pData = seededData.slice(pageSize*e.currentPage, pageSize*e.currentPage+pageSize);
     setPageData([...pData]);
+    setCurrentPage (e.currentPage);
   }
   //#endregion
 
@@ -58,7 +59,7 @@ export function FriendsSimplePagerList() {
     <>
       <FriendList friends={pageData} onClick={onView}/>
       <ListPager nrVisiblePages={nrVisiblePages} currentPage={currentPage} maxNrPages={maxNrPages}
-         setCurrentPage={setCurrentPage} onPageChange={onPageChange}/>
+          onPageChange={onPageChange}/>
     </>
   );
 }
