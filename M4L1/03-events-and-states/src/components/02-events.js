@@ -17,6 +17,7 @@ export function TextCounterFunc02(props) {
       <div>
       <textarea defaultValue={text} onChange={onTextChange}/>
       <h3>{text.length}</h3>
+      <p>{text}</p>
       </div>
     </>
   )

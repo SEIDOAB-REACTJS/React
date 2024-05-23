@@ -18,6 +18,7 @@ export function PropsFunc01(props) {
 
 //In a class component React provides the props in this.props
 export class PropsClass01 extends Component {
+  
   render() {
     return (
         <>

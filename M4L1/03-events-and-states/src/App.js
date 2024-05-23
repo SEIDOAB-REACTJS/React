@@ -11,7 +11,7 @@ function App() {
     //Stateless
     /*
     <>
-      <TextCounterFunc01/>
+      <TextCounterFunc01 text="Hello, my name is Martin"/>
       <TextCounterClass01/>
     </>
     */
@@ -27,22 +27,24 @@ function App() {
     */
 
     //Add states
-    
+    /*
     <>
     <TextCounterFunc03/>
     <TextCounterClass03/>
     <TextCounterFunc03 text="Hello, my name is Martin"/>
     <TextCounterClass03 text="Hello, my name is Martin"/>
     </>
+    */
+    
     
 
     //Color exercise
-    /*
+    
     <>
     <ColorBoxesFunc04/>
     <ColorBoxesClass04/>
     </>
-    */
+    
   );
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 //Making Hello World into a component
 //https://react.dev/reference/react/createElement
 
-function HelloWorld() {
+export function HelloWorld01() {
 
   const myName = "Harry";
 
@@ -23,4 +23,15 @@ function HelloWorld() {
   )
 }
 
-export default HelloWorld
+export  function HelloWorld01a() {
+  const myName = "Harry";
+
+  return (
+    <h1 id = "my-heading">
+      text before span tag:
+      <span>Hello from {myName} <em>Wonderful</em>World</span>
+      :text after span tag
+    </h1>
+  );
+}
+

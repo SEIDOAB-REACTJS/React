@@ -8,9 +8,9 @@ export function HelloFunc05() {
     const _seeder = new seedGenerator();
     const _latin = _seeder.latinSentence;
 
-    const _timeOfDay = "morning";
+//    const _timeOfDay = "morning";
 //    const _timeOfDay = "afternoon";
-//    const _timeOfDay = "evening";
+    const _timeOfDay = "evening";
 //    const _timeOfDay = undefined;
     let _greetings;
 

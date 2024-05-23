@@ -3,19 +3,20 @@ import './App.css';
 import './css/flexbox_5.css';
 import { PropsClass01, PropsFunc01 } from './components/01-props';
 import { PropsFunc02, PropsClass02a, PropsClass02b } from './components/02-props-default';
-import { ColorBoxes01, ColorBoxes02, ColorBoxes03 } from './components/03-colors';
+import { ColorBoxes01, ColorBoxes02, ColorBoxes03 } from './components/03-colors-exAnsw';
 import { ColorBoxes04 } from './components/04-props-type';
 
 function App() {
   return (
   
   //Using Props
+  
   /*
   <>
-    <PropsFunc01 name="Harry" friend="Sam"/>
+    <PropsFunc01 friend="Sam"/>
     <PropsClass01 name="Hemronie" friend="Sara"/>
   </>
-  */
+*/
 
   //Undefined props
   /*
@@ -38,7 +39,7 @@ function App() {
   
   <>
   <ColorBoxes01/>
-  <ColorBoxes02 color="orange" />
+  <ColorBoxes02 color="red" />
   <ColorBoxes03 color={["orange", "green", "blue"]}  />
   </>
 
