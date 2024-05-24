@@ -2,9 +2,8 @@ import React from 'react'
 
 
 export function Greetings(props) {
-    const name = props.name;
-    
+
     return (    
-    <h1>Good Morning {name}</h1>
+    <h1>Good Morning {props.name}. {props.greeting}</h1>
   )
 }
