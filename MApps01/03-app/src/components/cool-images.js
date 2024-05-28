@@ -22,41 +22,43 @@ export function CoolImages(props) {
   }
   
   return (
-    <div className="FlexWrap">
-        <div className="FlexItem">
-            <div><img src={_rndimg} onClick={onClick}/></div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Nisl tincidunt eget nullam non.
-            </p>
-        </div>
-        <div className="FlexItem">
-            <div><img src={jupiter2} onClick={onClick}/></div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Nisl tincidunt eget nullam non.
-            </p>
-        </div>
-        <div className="FlexItem">
-            <div><img src={jupiter3}  onClick={onClick}/></div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Nisl tincidunt eget nullam non.
-            </p>
-        </div>
-        <div className="FlexItem">
-            <div><img src={jupiter4}  onClick={onClick}/></div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Nisl tincidunt eget nullam non.
-            </p>
-        </div>
-        <div className="FlexItem">
-            <div><img src={jupiter5}  onClick={onClick}/></div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Nisl tincidunt eget nullam non.
-            </p>
+    <div className="GridItemMain">
+        <div className="FlexWrap">
+            <div className="FlexItem">
+                <div><img src={_rndimg} onClick={onClick}/></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Nisl tincidunt eget nullam non.
+                </p>
+            </div>
+            <div className="FlexItem">
+                <div><img src={jupiter2} onClick={onClick}/></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Nisl tincidunt eget nullam non.
+                </p>
+            </div>
+            <div className="FlexItem">
+                <div><img src={jupiter3}  onClick={onClick}/></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Nisl tincidunt eget nullam non.
+                </p>
+            </div>
+            <div className="FlexItem">
+                <div><img src={jupiter4}  onClick={onClick}/></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Nisl tincidunt eget nullam non.
+                </p>
+            </div>
+            <div className="FlexItem">
+                <div><img src={jupiter5}  onClick={onClick}/></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Nisl tincidunt eget nullam non.
+                </p>
+            </div>
         </div>
     </div>   
   )
