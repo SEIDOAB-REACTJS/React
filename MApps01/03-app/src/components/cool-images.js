@@ -17,8 +17,8 @@ export function CoolImages(props) {
 
     console.log(e.target.src);
 
-    e.clickedImgSrc = e.target.src
-    props.onClick(e);
+    e.clickedImgSrc = e.target.src;
+    if (props.onClick) props.onClick(e);
   }
   
   return (
