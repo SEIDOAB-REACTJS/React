@@ -1,7 +1,17 @@
 import React from 'react'
+import { Book, LibraryService } from "../services/library";
 import {VinylFill, MusicPlayerFill, MusicNoteList, JournalRichtext} from 'react-bootstrap-icons'
 
 export function Musicbands() {
+
+  const _service = new LibraryService(localStorage);
+  const [books, setBooks] = React.useState(_service.readBooks(0,10, 'adventure'));
+
+  const onClick = (e) => {
+
+    setBooks(_service.readBooks(0,10, e.genre))
+  }
+
   return (
     <div className="container px-4 py-4" id="list-of-items">
     <h2 className="pb-2 border-bottom">
@@ -13,8 +23,8 @@ export function Musicbands() {
     <p>Subscribe to the LibraryService</p>
 
 
-    <ListSearch/>
-    <List/>
+    <ListSearch onClick={onClick}/>
+    <List books={books}/>
     <ListPager/>
 
 
@@ -24,13 +34,20 @@ export function Musicbands() {
 }
 
 
-export function ListSearch() {
+export function ListSearch(props) {
+
+    const onClick = (e) => {
+
+       e.genre =  document.getElementById("search").value;
+       if (props.onClick) props.onClick(e);
+    }
+
   return (
     <div className="row mb-1 text-center">
     <div className="col-md-8 ">
       <form className="d-flex mt-3 mt-lg-0" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <input id='search' className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" onClick={onClick} >Search</button>
       </form>
     </div>
   </div>
@@ -60,32 +77,30 @@ export function ListPager() {
 }
 
 
-export function List() {
+export function List(props) {
     return (
         <div className="row row-cols-1 row-cols-lg-4 align-items-stretch g-4 py-5">
         <div className="col-md-7 col-lg-10">
             <div className="row mb-2 text-center">
-              <div className="col-md-10 themed-grid-head-col">Book</div>
-              <div className="col-md-2 themed-grid-head-col">
-                <a  href="#add-edit-artist" className="btn btn-success btn-sm m-1" type="button">New</a>
-              </div>
+              <div className="col-md-6 themed-grid-head-col">Title</div>
+              <div className="col-md-3 themed-grid-head-col">Genre</div>
+              <div className="col-md-3 themed-grid-head-col">Author</div>
             </div>
-            <div className="row mb-2 text-center">
-              <div className="col-md-10 themed-grid-col">
-                <a href="#view-group">
-                  AC/DC
-                </a>
-              </div>
-              <div className="col-md-2 themed-grid-col">
-                <a href="#add-edit-friend"  className="btn btn-secondary btn-sm m-1" type="button">Edit</a>
-  
-                <button type="button" className="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#dangerModal"
-                    data-modal-body="Should NNN be deleted?"
-                    data-seido-modal-post-data="123-123" data-seido-modal-post-url="./index">
-                    Del
-                </button>
-              </div>
-            </div>
+
+            {props.books.pageItems.map(b => (
+                <div className="row mb-2 text-center">
+                <div className="col-md-6 themed-grid-col">
+                    {b.title}
+                </div>
+                <div className="col-md-3 themed-grid-col">{b.genre}</div>
+
+                <div className="col-md-3 themed-grid-col">
+                    {b.author}
+                </div>
+                </div>
+            ))} 
+
+
         </div>
       </div>
     )
