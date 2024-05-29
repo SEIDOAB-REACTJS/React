@@ -60,17 +60,51 @@ export function CoolImages03(props) {
     <div className="GridItemMain">
         <div className="FlexWrap">
             <div className="FlexItem">
-                <div><img src={jupiter1} onClick={onClick} data-genre='Adventure'/></div>
+                <div><img src={jupiter1} onClick={onClick} data-genre='Adventure' data-id={1234}/></div>
                 <p>
                     Adventure _books.
                 </p>
             </div>
             <div className="FlexItem">
-                <div><img src={jupiter2} onClick={onClick} data-genre='Horror'/></div>
+                <div><img src={jupiter2} onClick={onClick} data-genre='Horror' data-id={1234}/></div>
                 <p>
                     Horror books.
                 </p>
             </div>
+        </div>
+    </div>   
+  )
+}
+
+
+export function CoolImages04(props) {
+
+  //how to get a random image from imports
+  const _seeder = new seedGenerator();
+  const _rndimg = _seeder.fromArray([jupiter1, jupiter2, jupiter3, jupiter4, jupiter5]);
+  
+  const onClick = (e) => {
+
+    console.log(e.target.src);
+
+    e.clickedImgSrc = e.target.src;
+    e.genre = e.target.dataset.genre;
+    if (props.onClick) props.onClick(e);
+  }
+  
+  return (
+    <div className="GridItemMain">
+        <div className="FlexWrap">
+          {props.genre.map (g => (
+
+            <div className="FlexItem">
+              <div><img src={_seeder.fromArray([jupiter1, jupiter2, jupiter3, jupiter4, jupiter5])} onClick={onClick} data-genre={g}/></div>
+              <p>
+                  {g} books.
+              </p>
+            </div>
+          ))}
+
         </div>
     </div>   
   )

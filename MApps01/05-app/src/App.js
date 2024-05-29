@@ -10,7 +10,7 @@ import './css/table.css';
 import { Book, LibraryService } from "./services/library";
 
 import { CoolList, CoolList01, CoolList02 } from './components/cool-list';
-import { CoolImages, CoolImages03 } from './components/cool-images'
+import { CoolImages, CoolImages03, CoolImages04 } from './components/cool-images'
 import { Header } from './components/header';
 
 function App() {
@@ -36,7 +36,7 @@ export function App02() {
 
   //example of using library service
   const _service = new LibraryService(localStorage);
-  const books = _service.readBooks(0,10, 'adventure');
+  const _books = _service.readBooks(0,10, 'adventure');
 
   const [imgClicked, setImgClicked] = React.useState();
   
@@ -50,7 +50,7 @@ export function App02() {
     <>
     <Header message={imgClicked}/>
     <CoolImages onClick={onClick}/>
-    <CoolList02 books={books}/>
+    <CoolList02 books={_books}/>
     </>
   );
 }
@@ -75,6 +75,31 @@ export function App03() {
     <>
     <Header message={imgClicked}/>
     <CoolImages03 onClick={onClick}/>
+    <CoolList02 books={books}/>
+    </>
+  );
+}
+
+export function App04() {
+
+  //example of using library service
+  const _service = new LibraryService(localStorage);
+
+  const [imgClicked, setImgClicked] = React.useState();
+  const [books, setBooks] = React.useState(_service.readBooks(0,10, 'adventure'));
+  
+  const onClick = (e) => {
+
+    setImgClicked(e.clickedImgSrc);
+    console.log("Clicked from App", e.clickedImgSrc);
+
+    setBooks(_service.readBooks(0,10, e.genre))
+  }
+  
+  return (
+    <>
+    <Header message={imgClicked}/>
+    <CoolImages04 onClick={onClick} genre={['Adventure', 'Horror', 'Computers', 'SciFi']}/>
     <CoolList02 books={books}/>
     </>
   );
