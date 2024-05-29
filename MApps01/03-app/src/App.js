@@ -22,7 +22,7 @@ function App() {
   return (
     <>
     <Header message={imgClicked}/>
-    <CoolImages onClick={onClick}/>
+    <CoolImages setImgClicked={setImgClicked}/>
     </>
   );
 }

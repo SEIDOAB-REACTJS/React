@@ -27,15 +27,48 @@ export function CoolImages(props) {
             <div className="FlexItem">
                 <div><img src={jupiter1} onClick={onClick}/></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Nisl tincidunt eget nullam non.
+                    Adventure _books.
                 </p>
             </div>
             <div className="FlexItem">
                 <div><img src={jupiter2} onClick={onClick}/></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Nisl tincidunt eget nullam non.
+                    Horror books.
+                </p>
+            </div>
+        </div>
+    </div>   
+  )
+}
+
+export function CoolImages03(props) {
+
+  //how to get a random image from imports
+  const _seeder = new seedGenerator();
+  const _rndimg = _seeder.fromArray([jupiter1, jupiter2, jupiter3, jupiter4, jupiter5]);
+  
+  const onClick = (e) => {
+
+    console.log(e.target.src);
+
+    e.clickedImgSrc = e.target.src;
+    e.genre = e.target.dataset.genre;
+    if (props.onClick) props.onClick(e);
+  }
+  
+  return (
+    <div className="GridItemMain">
+        <div className="FlexWrap">
+            <div className="FlexItem">
+                <div><img src={jupiter1} onClick={onClick} data-genre='Adventure'/></div>
+                <p>
+                    Adventure _books.
+                </p>
+            </div>
+            <div className="FlexItem">
+                <div><img src={jupiter2} onClick={onClick} data-genre='Horror'/></div>
+                <p>
+                    Horror books.
                 </p>
             </div>
         </div>
