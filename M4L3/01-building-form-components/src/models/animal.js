@@ -1,10 +1,11 @@
-import { uniqueId } from '../services/seido-helpers';
+import { uniqueId, randomNumber } from '../services/seido-helpers';
 
 export default function Animal() {
 
     this.id = undefined;
     this.name = undefined;
     this.type = undefined;
+    this.age = undefined;
   }
   
   Animal.prototype = {
@@ -14,6 +15,7 @@ export default function Animal() {
       a.id = uniqueId();
       a.name = _sgen.petName;
       a.type = _sgen.fromString("Elephant, Lion, Tiger, Giraff, Zebra");
+      a.age = randomNumber(0,10);
       return a;
     },
     

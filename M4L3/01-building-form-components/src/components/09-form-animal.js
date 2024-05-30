@@ -29,13 +29,17 @@ export function FormAnimal09(props) {
             <form className="needs-validation">
               <div className="row g-3">
 
-                <div className="col-sm-6">
+                <div className="col-sm-4">
                   <label htmlFor="name" className="form-label">Name</label>
                   <input type="text" className="form-control" id="name" value={animal.name} required/>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-4">
                   <label htmlFor="type" className="form-label">Type</label>
                   <input type="text" className="form-control" id="type" value={animal.type} required/>
+                </div>
+                <div className="col-sm-4">
+                  <label htmlFor="age" className="form-label">Type</label>
+                  <input type="number" className="form-control" id="age" value={animal.age} required/>
                 </div>
 
               </div>

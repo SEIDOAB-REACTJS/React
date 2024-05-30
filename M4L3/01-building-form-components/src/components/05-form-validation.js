@@ -88,6 +88,9 @@ export function FormValidation05(props) {
                 <div className="invalid-feedback">
                   You must provide a firstname.
                 </div>
+                <div className="valid-feedback">
+                  firstname looks ok
+                </div>
               </div>
 
               <div className="col-sm-6">
@@ -97,7 +100,7 @@ export function FormValidation05(props) {
                   You must provide a lastname.
                 </div>
                 <div className="valid-feedback">
-                  It looks ok
+                  lastname looks ok
                 </div>
               </div>
           

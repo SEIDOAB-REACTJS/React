@@ -42,6 +42,7 @@ function App() {
     const onUndo = (e) => 
     {
       console.log (`onUndo invoked`);
+      console.log(e.person); 
     }  
 
 
@@ -56,7 +57,7 @@ function App() {
 
     return (
       <>
-        <SearchInModal12a/>
+       <UseBootstrapModal07/>
       </>
     );
   }
@@ -74,6 +75,7 @@ function App() {
       <UseFormInModal08a/>
 
       <FormAnimal09 animal={animal} onSave={onSaveAnimal} onUndo={onUndo}/> 
+      <FormAnimal09a animal={animal} onSave={onSaveAnimal} onUndo={onUndo}/> 
       <AnimalPage10/> 
       <AnimalPage10a/> 
 

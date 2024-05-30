@@ -5,8 +5,13 @@ export function Form01(props) {
 
   const onSave = (e) => 
   { 
+    const fname = document.querySelector("#firstName").value;
+    e.fname = fname;
     //We are going to add validation here later 
     props.onSave(e);
+
+
+
   }  
 
   return (
@@ -27,7 +32,7 @@ export function Form01(props) {
               <div className="row g-3">
                 <div className="col-sm-6">
                   <label htmlFor="firstName" className="form-label">First name</label>
-                  <input type="text" className="form-control" id="firstName" required/>
+                  <input type="text" className="form-control" id="firstName" defaultValue="Martin" required/>
                 </div>
 
                 <div className="col-sm-6">

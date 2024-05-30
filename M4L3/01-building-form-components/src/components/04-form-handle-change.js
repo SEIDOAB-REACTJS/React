@@ -41,7 +41,8 @@ export function FormHandleChange04(props) {
         return;
     }
     setFriend(f);
-  }
+    console.log(f.firstName, f.address.zipCode);
+}
 
   const onSave = (e) => {
     //We are going to add validation here later 
@@ -52,6 +53,7 @@ export function FormHandleChange04(props) {
     console.log(`onUndo invoked`);
 
     setFriend(props.friend);
+    e.person = props.friend;
     props.onUndo(e);
   }
   return (
