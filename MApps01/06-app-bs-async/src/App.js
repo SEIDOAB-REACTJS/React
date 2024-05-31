@@ -5,13 +5,13 @@ import './css/grid.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {Welcome} from './components/welcome';
-import {Musicbands} from './components/musicbands';
+import {Musicalbums} from './components/musicalbums';
 
 function App() {
   return (
   <>
   <Welcome/>
-  <Musicbands />
+  <Musicalbums />
   </>
   );
 }

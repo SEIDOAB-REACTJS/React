@@ -1,34 +1,50 @@
-import React from 'react'
-import { Book, LibraryService } from "../services/library";
+import React, {useState, useEffect} from 'react'
+import musicService from '../services/music-group-service';
+
 import {VinylFill, MusicPlayerFill, MusicNoteList, JournalRichtext} from 'react-bootstrap-icons'
 
-export function Musicbands() {
+export function Musicalbums(props) {
 
-  const _service = new LibraryService(localStorage);
-  const [books, setBooks] = React.useState(_service.readBooks(0,10, 'adventure'));
+  const [albums, setAlbums] = React.useState({});
+  const [filter, setFilter] = useState(props.searchFilter || "");
 
-  const onClick = (e) => {
+  /*
+  useEffect(() => {
+  
+  (async () => {
 
-    setBooks(_service.readBooks(0,10, e.genre))
+      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const a = await service.readAlbumsAsync(0, true, props.searchFilter);
+      setAlbums(a);
+    })();
+
+    setFilter(props.searchFilter);   
+  }, [props])
+  */
+
+  const onClick = async (e) => {
+
+    const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+    const _serviceData = await service.readAlbumsAsync(0);
+
+    setAlbums(_serviceData);
+    setFilter(e.searchFilter);   
   }
 
   return (
     <div className="container px-4 py-4" id="list-of-items">
     <h2 className="pb-2 border-bottom">
         <JournalRichtext className="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"/>
-         List of Books</h2>
+         List of Albums</h2>
 
 
-    <p>Below are some of the worlds most famous books.</p>
-    <p>Subscribe to the LibraryService</p>
+    <p>Below are some of the worlds most famous albums.</p>
+    <p>Subscribe to the WebApi</p>
 
 
-    <ListSearch onClick={onClick}/>
-    <List books={books}/>
+    <ListSearch searchFilter={filter} onClick={onClick}/>
+    <List albums={albums}/>
     <ListPager/>
-
-
-
     </div>
   )
 }
@@ -38,7 +54,7 @@ export function ListSearch(props) {
 
     const onClick = (e) => {
 
-       e.genre =  document.getElementById("search").value;
+       e.searchFilter =  document.getElementById("search").value;
        if (props.onClick) props.onClick(e);
     }
 
@@ -46,7 +62,8 @@ export function ListSearch(props) {
     <div className="row mb-1 text-center">
     <div className="col-md-8 ">
       <form className="d-flex mt-3 mt-lg-0" role="search">
-        <input id='search' className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <input id='search' className="form-control me-2" type="search" placeholder="Search" 
+          defaultValue = {props.searchFilter} aria-label="Search"/>
         <button className="btn btn-outline-success" onClick={onClick} >Search</button>
       </form>
     </div>
@@ -82,20 +99,20 @@ export function List(props) {
         <div className="row row-cols-1 row-cols-lg-4 align-items-stretch g-4 py-5">
         <div className="col-md-7 col-lg-10">
             <div className="row mb-2 text-center">
-              <div className="col-md-6 themed-grid-head-col">Title</div>
-              <div className="col-md-3 themed-grid-head-col">Genre</div>
-              <div className="col-md-3 themed-grid-head-col">Author</div>
+              <div className="col-md-6 themed-grid-head-col">Name</div>
+              <div className="col-md-3 themed-grid-head-col">Release Year</div>
+              <div className="col-md-3 themed-grid-head-col">Copies sold</div>
             </div>
 
-            {props.books.pageItems.map((b, index) => (
+            {props.albums?.pageItems?.map((b, index) => (
                 <div key={index} className="row mb-2 text-center">
                 <div className="col-md-6 themed-grid-col">
-                    {b.title}
+                    {b.name}
                 </div>
-                <div className="col-md-3 themed-grid-col">{b.genre}</div>
+                <div className="col-md-3 themed-grid-col">{b.releaseYear}</div>
 
                 <div className="col-md-3 themed-grid-col">
-                    {b.author}
+                    {b.copiesSold}
                 </div>
                 </div>
             ))} 
