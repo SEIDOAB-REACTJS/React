@@ -2,29 +2,33 @@ import React, { Component, useState, useEffect, setState } from "react";
 import musicService from '../services/music-group-service';
 
 export function ReadWebApiFunc06() {
+
   const [wapiInfo, setWapiInfo] = useState();
-
-
+  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+ 
   useEffect(() => {
       //equvalent to componentDidMount
+      console.log('componentDidMount');
 
       //package the async in an async iffy
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
-        console.log('componentDidMount');
-        
         const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
         const info = await service.readInfoAsync();
         setWapiInfo(info);
-      })();
-    }
+      })();}
   , []);
+
+  const onClick = async () => {
+
+    const info = await service.readInfoAsync();
+    setWapiInfo(info);
+  }
 
   return (
     <div>
       <h1>WebApi info</h1>
-      <p>
         <ul>
           <li>nrSeededMusicGroups: {wapiInfo?.nrSeededMusicGroups} </li>
           <li>nrUnseededMusicGroups: {wapiInfo?.nrUnseededMusicGroups} </li>
@@ -33,7 +37,7 @@ export function ReadWebApiFunc06() {
           <li>nrSeededArtists: {wapiInfo?.nrSeededArtists} </li>
           <li>nrUnseededArtists: {wapiInfo?.nrUnseededArtists} </li>
         </ul>
-      </p>
+        <button onClick={onClick}>Refresh</button>
     </div>
   );
 }

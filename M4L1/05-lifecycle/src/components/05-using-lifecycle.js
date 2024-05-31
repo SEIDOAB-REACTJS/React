@@ -21,12 +21,16 @@ export function TimeTickerFunc05() {
 
     clearInterval(timer);}
 
-}, []);
+}, [setCurrentTime]);
 
   return (
     <div>
       <h1>Current Time</h1>
       <p>{currentTime.toLocaleTimeString()}</p>
+      <ul>
+        <li>Hello1</li>
+        <li>Hello2</li>
+      </ul>
     </div>
   );
 }
