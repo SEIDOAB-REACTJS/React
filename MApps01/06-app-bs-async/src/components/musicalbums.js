@@ -8,7 +8,7 @@ export function Musicalbums(props) {
   const [albums, setAlbums] = React.useState({});
   const [filter, setFilter] = useState(props.searchFilter || "");
 
-  /*
+  
   useEffect(() => {
   
   (async () => {
@@ -20,7 +20,7 @@ export function Musicalbums(props) {
 
     setFilter(props.searchFilter);   
   }, [props])
-  */
+  
 
   const onClick = async (e) => {
 
