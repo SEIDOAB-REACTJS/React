@@ -1,11 +1,13 @@
 import React, { Component, useState, useEffect, setState } from "react";
 import musicService from '../services/music-group-service';
 
-export function ReadWebApiFunc06() {
+export function WebApiListAsyncF02() {
 
-  const [wapiInfo, setWapiInfo] = useState();
+  const [wapiData, setWapiData] = useState();
   const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
  
+  let pageNr = 0;
+
   useEffect(() => {
       //equvalent to componentDidMount
       console.log('componentDidMount');
@@ -15,43 +17,45 @@ export function ReadWebApiFunc06() {
       //(async () => {})()
       (async () => {
         const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
-        const info = await service.readInfoAsync();
-        setWapiInfo(info);
+        const data = await service.readAlbumsAsync(pageNr);
+        setWapiData(data);
       })();}
   , []);
 
   const onClick = async () => {
 
-    const info = await service.readInfoAsync();
-    setWapiInfo(info);
-    console.log('Clicked refesh button in func component');
+    if (pageNr < wapiData.pageCount-1){
+    
+      pageNr++;
+      const data = await service.readAlbumsAsync(pageNr);
+      setWapiData(data);
+      console.log('Clicked next page in func component');
+    }
   }
 
   return (
     <div>
-      <h1>WebApi info</h1>
+      <h1>WebApi list page {pageNr}</h1>
         <ul>
-          <li>nrSeededMusicGroups: {wapiInfo?.nrSeededMusicGroups} </li>
-          <li>nrUnseededMusicGroups: {wapiInfo?.nrUnseededMusicGroups} </li>
-          <li>nrSeededAlbums: {wapiInfo?.nrSeededAlbums} </li>
-          <li>nrUnseededAlbums: {wapiInfo?.nrUnseededAlbums} </li>
-          <li>nrSeededArtists: {wapiInfo?.nrSeededArtists} </li>
-          <li>nrUnseededArtists: {wapiInfo?.nrUnseededArtists} </li>
+          {wapiData?.pageItems.map((item, index) => (
+            <li key={index}>{item.name} was released year {item.releaseYear} and havle sold 
+            {item.copiesSold} copies </li>
+          ))}
         </ul>
-        <button onClick={onClick}>Refresh</button>
+        <button onClick={onClick}>Next page</button>
     </div>
   );
 }
 
 
-export class ReadWebApiClass06 extends Component {
+export class WebApiListAsyncC02 extends Component {
   constructor(props) {
     super(props);          //Needs to be the 1st call
 
     this.service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
 
     //states, in class component, initialized, here with an empty object
-    this.state = {wapiInfo: {}}
+    this.state = {wapiData: {}}
 
     //Eventhandler, in class component
     this.onClick = this.onClick.bind(this);
@@ -61,7 +65,7 @@ export class ReadWebApiClass06 extends Component {
   async onClick(e) {
     const info = await this.service.readInfoAsync();
 
-    this.setState({wapiInfo: info});
+    this.setState({wapiData: info});
     console.log('Clicked refesh button in class component');
   }
 
@@ -76,7 +80,7 @@ export class ReadWebApiClass06 extends Component {
       
       const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
       const info = await service.readInfoAsync();
-      this.setState({wapiInfo: info});
+      this.setState({wapiData: info});
     })();
   }
 
@@ -85,13 +89,14 @@ export class ReadWebApiClass06 extends Component {
       <div>
         <h1>WebApi info</h1>
         <ul>
-          <li>nrSeededMusicGroups: {this.state.wapiInfo?.nrSeededMusicGroups} </li>
-          <li>nrUnseededMusicGroups: {this.state.wapiInfo?.nrUnseededMusicGroups} </li>
-          <li>nrSeededAlbums: {this.state.wapiInfo?.nrSeededAlbums} </li>
-          <li>nrUnseededAlbums: {this.state.wapiInfo?.nrUnseededAlbums} </li>
-          <li>nrSeededArtists: {this.state.wapiInfo?.nrSeededArtists} </li>
-          <li>nrUnseededArtists: {this.state.wapiInfo?.nrUnseededArtists} </li>
+          <li>nrSeededMusicGroups: {this.state.wapiData?.nrSeededMusicGroups} </li>
+          <li>nrUnseededMusicGroups: {this.state.wapiData?.nrUnseededMusicGroups} </li>
+          <li>nrSeededAlbums: {this.state.wapiData?.nrSeededAlbums} </li>
+          <li>nrUnseededAlbums: {this.state.wapiData?.nrUnseededAlbums} </li>
+          <li>nrSeededArtists: {this.state.wapiData?.nrSeededArtists} </li>
+          <li>nrUnseededArtists: {this.state.wapiData?.nrUnseededArtists} </li>
         </ul>
+        <p>See console for refresh click confirmation</p>
         <button onClick={this.onClick}>Refresh</button>
       </div>
     )
