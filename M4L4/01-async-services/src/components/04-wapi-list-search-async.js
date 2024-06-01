@@ -1,51 +1,74 @@
 import React, { Component, useState, useEffect, setState } from "react";
 import musicService from '../services/music-group-service';
 
-export function WebApiInfoAsyncF01() {
+export function WebApiListSearchAsyncF04() {
+
+  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
 
   const [wapiData, setWapiData] = useState();
-  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+  const [pageNr, setPageNr] = useState(0);
+  const [searchFilter, setSearchFilter] = useState(null);
  
   useEffect(() => {
       //equvalent to componentDidMount
-      console.log('componentDidMount');
+      console.log('useEffect run');
 
       //package the async in an async iffy
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
         const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
-        const info = await service.readInfoAsync();
-        setWapiData(info);
+        const data = await service.readAlbumsAsync(0);
+        setWapiData(data);
       })();}
-  );
 
-  const onClick = async () => {
+  ,[]); //empty dependency array means useEffect will run only at initial mount
 
-    const info = await service.readInfoAsync();
-    setWapiData(info);
-    console.log('Clicked refesh button in func component');
+  const onNextPage = async () => {
+
+    if (pageNr < wapiData.pageCount-1){
+    
+      const data = await service.readAlbumsAsync(pageNr, true, searchFilter);
+      setWapiData(data);
+      setPageNr(pageNr+1);
+      console.log('Clicked next page in func component');
+    }
+  }
+
+  const onSearch = async (e) => {
+
+    //Important to make sure .value is converted to a string as .value can be any type
+    const sf =  String(document.getElementById("search").value);
+
+    const data = await service.readAlbumsAsync(pageNr, true, sf);
+  
+    setWapiData(data);
+    setSearchFilter(sf);
+    setPageNr(0);
+    console.log('Clicked search page in func component');
   }
 
   return (
     <div>
-      <h1>WebApi info</h1>
+      <h1>WebApi list page {pageNr} searchfilter {searchFilter}</h1>
+
+        <form>
+          <input id='search' placeholder="search" defaultValue={searchFilter}/>
+          <button onClick={onSearch} type="button">Search</button>
+        </form>
+
         <ul>
-          <li>nrSeededMusicGroups: {wapiData?.nrSeededMusicGroups} </li>
-          <li>nrUnseededMusicGroups: {wapiData?.nrUnseededMusicGroups} </li>
-          <li>nrSeededAlbums: {wapiData?.nrSeededAlbums} </li>
-          <li>nrUnseededAlbums: {wapiData?.nrUnseededAlbums} </li>
-          <li>nrSeededArtists: {wapiData?.nrSeededArtists} </li>
-          <li>nrUnseededArtists: {wapiData?.nrUnseededArtists} </li>
+          {wapiData?.pageItems.map((item, index) => (
+            <li key={index}>{item.name} was released year {item.releaseYear} and havle sold {item.copiesSold} copies </li>
+          ))}
         </ul>
-        <p>See console for refresh click confirmation</p>
-        <button onClick={onClick}>Refresh</button>
+        <button onClick={onNextPage}>Next page</button>
     </div>
   );
 }
 
 
-export class WebApiInfoAsyncC01 extends Component {
+export class WebApiListSearchAsyncC04 extends Component {
   constructor(props) {
     super(props);          //Needs to be the 1st call
 

@@ -6,43 +6,37 @@ export function WebApiListAsyncF02() {
   const [wapiData, setWapiData] = useState();
   const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
  
-  let pageNr = 0;
-
   useEffect(() => {
       //equvalent to componentDidMount
-      console.log('componentDidMount');
+      console.log('useEffect run');
 
       //package the async in an async iffy
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
         const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
-        const data = await service.readAlbumsAsync(pageNr);
+        const data = await service.readAlbumsAsync(0);
         setWapiData(data);
       })();}
-  , []);
+  );
 
   const onClick = async () => {
 
-    if (pageNr < wapiData.pageCount-1){
-    
-      pageNr++;
-      const data = await service.readAlbumsAsync(pageNr);
+      const data = await service.readAlbumsAsync(1);
       setWapiData(data);
-      console.log('Clicked next page in func component');
+      console.log('Clicked refesh button in class component');
     }
-  }
 
   return (
     <div>
-      <h1>WebApi list page {pageNr}</h1>
+      <h1>WebApi list page</h1>
         <ul>
           {wapiData?.pageItems.map((item, index) => (
             <li key={index}>{item.name} was released year {item.releaseYear} and havle sold 
             {item.copiesSold} copies </li>
           ))}
         </ul>
-        <button onClick={onClick}>Next page</button>
+        <button onClick={onClick}>Refresh</button>
     </div>
   );
 }
