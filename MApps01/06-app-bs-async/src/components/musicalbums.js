@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import musicService from '../services/music-group-service';
 
-import {VinylFill, MusicPlayerFill, MusicNoteList, JournalRichtext} from 'react-bootstrap-icons'
+import {JournalRichtext} from 'react-bootstrap-icons'
 
 export function Musicalbums(props) {
 
@@ -22,10 +22,11 @@ export function Musicalbums(props) {
   }, [props])
   
 
-  const onClick = async (e) => {
+  const onSearch = async (e) => {
+    e.preventDefault();  //In case the button is of type submit (default for a button inside a form)
 
     const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
-    const _serviceData = await service.readAlbumsAsync(0);
+    const _serviceData = await service.readAlbumsAsync(0, true, e.searchFilter);
 
     setAlbums(_serviceData);
     setFilter(e.searchFilter);   
@@ -42,7 +43,7 @@ export function Musicalbums(props) {
     <p>Subscribe to the WebApi</p>
 
 
-    <ListSearch searchFilter={filter} onClick={onClick}/>
+    <ListSearch searchFilter={filter} onSearch={onSearch}/>
     <List albums={albums}/>
     <ListPager/>
     </div>
@@ -55,7 +56,7 @@ export function ListSearch(props) {
     const onClick = (e) => {
 
        e.searchFilter =  document.getElementById("search").value;
-       if (props.onClick) props.onClick(e);
+       if (props.onSearch) props.onSearch(e);
     }
 
   return (
@@ -64,7 +65,7 @@ export function ListSearch(props) {
       <form className="d-flex mt-3 mt-lg-0" role="search">
         <input id='search' className="form-control me-2" type="search" placeholder="Search" 
           defaultValue = {props.searchFilter} aria-label="Search"/>
-        <button className="btn btn-outline-success" onClick={onClick} >Search</button>
+        <button className="btn btn-outline-success" onClick={onClick}>Search</button>
       </form>
     </div>
   </div>
@@ -75,18 +76,11 @@ export function ListPager() {
   return (
     <nav aria-label="Standard pagination example">
       <ul className="pagination">
-        <li className="page-item">
-          <a className="page-link" href="#list-of-friends" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
+      <li className="page-item">
+          <button className="page-link" >&laquo;</button>
         </li>
-        <li className="page-item"><a className="page-link" href="#list-of-friends">1</a></li>
-        <li className="page-item"><a className="page-link" href="#list-of-friends">2</a></li>
-        <li className="page-item"><a className="page-link" href="#list-of-friends">3</a></li>
         <li className="page-item">
-          <a className="page-link" href="#list-of-friends" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
+          <button className="page-link" >&raquo;</button>
         </li>
       </ul>
     </nav>
@@ -116,8 +110,6 @@ export function List(props) {
                 </div>
                 </div>
             ))} 
-
-
         </div>
       </div>
     )

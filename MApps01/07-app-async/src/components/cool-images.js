@@ -9,28 +9,30 @@ import jupiter5 from '../img/jupiter5.jpg';
 
 export function CoolImages04(props) {
 
+  const _imgs = [jupiter1, jupiter2, jupiter3, jupiter4, jupiter5];
+
   //how to get a random image from imports
   const _seeder = new seedGenerator();
-  const _rndimg = _seeder.fromArray([jupiter1, jupiter2, jupiter3, jupiter4, jupiter5]);
+  const _rndimg = _seeder.fromArray(_imgs);
   
   const onClick = (e) => {
 
     console.log(e.target.src);
 
     e.clickedImgSrc = e.target.src;
-    e.genre = e.target.dataset.genre;
+    e.page = e.target.dataset.page;
     if (props.onClick) props.onClick(e);
   }
   
   return (
     <div className="GridItemMain">
         <div className="FlexWrap">
-          {props.genre.map (g => (
+          {props.pages.map ((g, index) => (
 
-            <div className="FlexItem">
-              <div><img src={jupiter1} onClick={onClick} data-genre={g}/></div>
+            <div key={index} className="FlexItem">
+              <div><img src={_imgs[index%5]} onClick={onClick} data-page={g}/></div>
               <p>
-                  {g} books.
+                  {g}.
               </p>
             </div>
           ))}

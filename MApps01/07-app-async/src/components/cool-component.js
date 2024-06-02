@@ -8,7 +8,7 @@ import musicService from '../services/music-group-service';
 export function CoolComp() {
 
   //example of using library service
-  const artist_service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
 
   const [imgClicked, setImgClicked] = React.useState();
   const [artists, setArtists] = useState({});
@@ -16,10 +16,13 @@ export function CoolComp() {
   useEffect(() => {
 
     (async () => {
-      const serviceData = await artist_service.readArtistsAsync(0);
+
+      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const serviceData = await service.readArtistsAsync(0);
+
       setArtists(serviceData);
     })()
-  }, [artist_service])
+  }, [])
 
 
   const onClick = async (e) => {
@@ -27,14 +30,19 @@ export function CoolComp() {
     setImgClicked(e.clickedImgSrc);
     console.log("Clicked from App", e.clickedImgSrc);
 
-    if (e.genre === 'Artists Page 0')
+    if (e.page === 'Artists Page 0')
       {
-        const serviceData = await artist_service.readArtistsAsync(0);
+        const serviceData = await service.readArtistsAsync(0);
         setArtists(serviceData);
       }
-    else if (e.genre === 'Artists Page 1')
+    else if (e.page === 'Artists Page 1')
       {
-        const serviceData = await artist_service.readArtistsAsync(1);
+        const serviceData = await service.readArtistsAsync(1);
+        setArtists(serviceData);
+      }
+    else if (e.page === 'Artists Page 2')
+      {
+        const serviceData = await service.readArtistsAsync(2);
         setArtists(serviceData);
       }
   }
@@ -42,7 +50,7 @@ export function CoolComp() {
   return (
     <>
     <Header message={imgClicked}/>
-    <CoolImages04 onClick={onClick} genre={['Artists Page 0', 'Artists Page 1']}/>
+    <CoolImages04 onClick={onClick} pages={['Artists Page 0', 'Artists Page 1', 'Artists Page 2']}/>
     <CoolList02 books={artists}/>
     </>
   );

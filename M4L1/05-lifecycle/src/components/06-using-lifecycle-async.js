@@ -18,7 +18,9 @@ export function ReadWebApiFunc06() {
         const info = await service.readInfoAsync();
         setWapiInfo(info);
       })();}
-  , []);
+  , []); //Empty array , []); as dependancies causes useEffect to run only once at component mount
+  //);   // ); no dependancies causes useEffect to run at every rerender. 
+         // as useEffect also update state setWapiInfo(...) which in turn causes render it becomes in this case an endless loop
 
   const onClick = async () => {
 

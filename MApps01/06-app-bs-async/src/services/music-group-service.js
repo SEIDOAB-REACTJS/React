@@ -30,15 +30,15 @@ class musicService {
         else {
     
           //typcially you would log an error instead
-          console.log(`Failed to recieved data from server: ${res.status}`);
-          alert(`Failed to recieved data from server: ${res.status}`);
+          console.log(`Failed to recieved data from server: ${res.status}\n${method} Request @ ${url}`);
+          alert(`Failed to recieved data from server: ${res.status}\n${method} Request @ ${url}`);
         }
       }
       catch (err) {
     
         //typcially you would log an error instead
-        console.log(`Failed to recieved data from server: ${err.message}`);
-        alert(`Failed to recieved data from server: ${err.message}`);
+        console.log(`Failed to recieved data from server: ${err.message}\n${method} Request @ ${url}`);
+        alert(`Failed to recieved data from server: ${err.message}\n${method} Request @ ${url}`);
       }
     }
 

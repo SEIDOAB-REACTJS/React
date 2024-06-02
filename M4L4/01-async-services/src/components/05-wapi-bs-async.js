@@ -36,6 +36,7 @@ export function WebApiListSearchAsyncF04() {
   }
 
   const onSearch = async (e) => {
+    e.preventDefault();  //In case the button is of type submit (default for a button inside a form)
 
     //Important to make sure .value is converted to a string as .value can be any type
     const sf =  String(document.getElementById("search").value);
@@ -54,7 +55,7 @@ export function WebApiListSearchAsyncF04() {
 
         <form>
           <input id='search' placeholder="search" defaultValue={searchFilter}/>
-          <button onClick={onSearch} type="button">Search</button>
+          <button onClick={onSearch}>Search</button>
         </form>
 
         <ul>

@@ -12,13 +12,10 @@ export function CoolList02(props) {
           <div className="trFluid">
             <div className="trFluid_Grouping2">
               <div className="trFluid_Grouping1">
-                <div className="tdFluent">Book title</div>
+                <div className="tdFluent">Artist</div>
               </div>
               <div className="trFluid_Grouping1">
-                <div className="tdFluent">Author</div>
-                <div className="tdFluent">Year published</div>
-                <div className="tdFluent">Million copies sold</div>
-                <div className="tdFluent">Genre</div>
+                <div className="tdFluent">Birthday</div>
               </div>
             </div>
           </div>
@@ -29,14 +26,11 @@ export function CoolList02(props) {
               <div key={index} className="trFluid">
               <div className="trFluid_Grouping2">
                 <div className="trFluid_Grouping1">
-                  <div className="tdFluent">{b.title}</div>
+                <div className="tdFluent">{b.firstName} {b.lastName}</div>
 
                 </div>
                 <div className="trFluid_Grouping1">
-                  <div className="tdFluent">{b.firstName} {b.lastName}</div>
                   <div className="tdFluent">{b.birthDay}</div>
-                  <div className="tdFluent">{b.millionsSold}</div>
-                  <div className="tdFluent">{b.genre}</div>
                 </div>
               </div>
             </div>
