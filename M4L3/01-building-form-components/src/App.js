@@ -57,7 +57,7 @@ function App() {
 
     return (
       <>
-       <UseBootstrapModal07/>
+        <AnimalPage10a/> 
       </>
     );
   }
