@@ -7,8 +7,9 @@ export function Musicalbums(props) {
 
   const [albums, setAlbums] = React.useState({});
   const [filter, setFilter] = useState(props.searchFilter || "");
+  const [pageNr, setPageNr] = useState(0);
+  const [pageMax, setPageMax] = useState(0);
 
-  
   useEffect(() => {
   
   (async () => {
@@ -16,6 +17,8 @@ export function Musicalbums(props) {
       const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
       const a = await service.readAlbumsAsync(0, true, props.searchFilter);
       setAlbums(a);
+      setPageMax(a.pageCount);
+
     })();
 
     setFilter(props.searchFilter);   
@@ -29,8 +32,32 @@ export function Musicalbums(props) {
     const _serviceData = await service.readAlbumsAsync(0, true, e.searchFilter);
 
     setAlbums(_serviceData);
-    setFilter(e.searchFilter);   
+    setFilter(e.searchFilter);
+    setPageMax(_serviceData.pageCount);
   }
+
+  const onPrevClick = async (e) => {
+    if (pageNr > 0) {
+      //own pager activity
+      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const _serviceData = await service.readAlbumsAsync(pageNr - 1, true, filter);
+
+      setPageNr (pageNr - 1);
+      setAlbums(_serviceData);
+    }
+  }
+  const onNextClick = async (e) => {
+
+      if (pageNr < pageMax-1) {
+        //own pager activity
+        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const _serviceData = await service.readAlbumsAsync(pageNr + 1, true, filter);
+        
+        setPageNr(pageNr + 1);
+        setAlbums(_serviceData);
+        }
+  }
+
 
   return (
     <div className="container px-4 py-4" id="list-of-items">
@@ -45,7 +72,7 @@ export function Musicalbums(props) {
 
     <ListSearch searchFilter={''} onSearch={onSearch}/>
     <List albums={albums}/>
-    <ListPager/>
+    <ListPager onPrevClick={onPrevClick} onNextClick={onNextClick}/>
     </div>
   )
 }
@@ -73,15 +100,27 @@ export function ListSearch(props) {
   )
 }
 
-export function ListPager() {
+export function ListPager(props) {
+
+  const onPrevClick = (e) => {
+    //own pager activity
+
+    //Lift event
+    if (props.onPrevClick) props.onPrevClick(e);
+  }
+  const onNextClick = (e) => {
+        //own pager activity
+            //Lift event
+    if (props.onNextClick) props.onNextClick(e);
+  }
   return (
     <nav aria-label="Standard pagination example">
       <ul className="pagination">
       <li className="page-item">
-          <button className="page-link" >&laquo;</button>
+          <button className="page-link" onClick={onPrevClick}>&laquo;</button>
         </li>
         <li className="page-item">
-          <button className="page-link" >&raquo;</button>
+          <button className="page-link" onClick={onNextClick}>&raquo;</button>
         </li>
       </ul>
     </nav>
