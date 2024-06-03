@@ -43,7 +43,7 @@ export function Musicalbums(props) {
     <p>Subscribe to the WebApi</p>
 
 
-    <ListSearch searchFilter={filter} onSearch={onSearch}/>
+    <ListSearch searchFilter={''} onSearch={onSearch}/>
     <List albums={albums}/>
     <ListPager/>
     </div>
@@ -54,7 +54,8 @@ export function Musicalbums(props) {
 export function ListSearch(props) {
 
     const onClick = (e) => {
-
+      e.preventDefault(); 
+      
        e.searchFilter =  document.getElementById("search").value;
        if (props.onSearch) props.onSearch(e);
     }

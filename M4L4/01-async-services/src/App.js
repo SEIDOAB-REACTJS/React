@@ -12,7 +12,7 @@ import { WebApiListSearchAsyncF04} from './components/04-wapi-list-search-async'
 function App() {
   return (
   <>
-    <WebApiListSearchAsyncF04/>
+      <WebApiListSearchAsyncF04/>
   </>
   );
 }

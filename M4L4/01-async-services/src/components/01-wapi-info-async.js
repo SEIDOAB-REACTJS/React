@@ -18,7 +18,7 @@ export function WebApiInfoAsyncF01() {
         const info = await service.readInfoAsync();
         setWapiData(info);
       })();}
-  );
+  , []);
 
   const onClick = async () => {
 

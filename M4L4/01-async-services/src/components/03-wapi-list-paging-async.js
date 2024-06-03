@@ -15,17 +15,20 @@ export function WebApiListPagingAsyncF03() {
       //(async () => {})()
       (async () => {
         const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
-        const data = await service.readAlbumsAsync(pageNr);
+        const data = await service.readAlbumsAsync(0);
         setWapiData(data);
       })();}
 
-  ,[pageNr]); //dependency on pageNr means useEffect will run each time pageNr change
+  ,[]); //dependency on pageNr means useEffect will run each time pageNr change
 
   const onClick = async () => {
 
     if (pageNr < wapiData.pageCount-1){
     
-      //this will make useEffect run as pageNr is set as a dependency
+      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const data = await service.readAlbumsAsync(pageNr+1);
+      
+      setWapiData(data);
       setPageNr(pageNr+1);
       console.log('Clicked next page in func component');
     }

@@ -18,7 +18,7 @@ export function WebApiListAsyncF02() {
         const data = await service.readAlbumsAsync(0);
         setWapiData(data);
       })();}
-  );
+  , []);
 
   const onClick = async () => {
 
