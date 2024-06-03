@@ -18,6 +18,7 @@ cd $1
 #install react-router-dom and react-bootstrap
 npm install react-router-dom
 npm install react-bootstrap bootstrap
+npm install react-bootstrap-icons
 npm install react-router-bootstrap
 
 npm start
