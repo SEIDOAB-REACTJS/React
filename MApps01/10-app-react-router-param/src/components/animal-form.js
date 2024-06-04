@@ -5,10 +5,13 @@ export function AnimalForm(props) {
 
   const [animal, setAnimal] = useState(props.animal);
 
+  
   //Needed A little tweeking to force set State animal
   useEffect(() => {
 
     setAnimal(props.animal);
+
+    console.log("useEffect");
   }, [props.animal]);
 
   
