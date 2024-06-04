@@ -21,8 +21,11 @@ export function NavMenu() {
                     <Nav.Link>Music</Nav.Link>
                 </LinkContainer>
             <NavDropdown title="Pages" id="basic-nav-dropdown">
-                <LinkContainer to="/animals/Leo">
-                    <NavDropdown.Item>Animals</NavDropdown.Item>
+                <LinkContainer to="/animals/Leo/Tiger/7">
+                    <NavDropdown.Item>Animals Leo</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/animals/Simba/Elephant/25">
+                    <NavDropdown.Item>Animals Simba</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/page1">
                     <NavDropdown.Item>Page1 New</NavDropdown.Item>

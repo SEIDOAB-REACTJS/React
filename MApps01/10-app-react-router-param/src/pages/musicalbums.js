@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import musicService from '../services/music-group-service';
 
 import {JournalRichtext} from 'react-bootstrap-icons'
+import {Link } from "react-router-dom";
 
 export function Musicalbums(props) {
 
@@ -139,6 +140,7 @@ export function List(props) {
             </div>
 
             {props.albums?.pageItems?.map((b, index) => (
+              <Link to={`/albumview/${b.albumId}`}>
                 <div key={index} className="row mb-2 text-center">
                 <div className="col-md-6 themed-grid-col">
                     {b.name}
@@ -149,6 +151,8 @@ export function List(props) {
                     {b.copiesSold}
                 </div>
                 </div>
+              </Link>
+
             ))} 
         </div>
       </div>

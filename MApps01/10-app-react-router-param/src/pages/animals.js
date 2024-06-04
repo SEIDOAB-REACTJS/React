@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 //import Animal from '../models/animal';
 import {AnimalForm} from '../components/animal-form';
 import { useParams } from 'react-router-dom';
 
 export function Animals() {
 
-    const props  = useParams();
+    const params  = useParams();
     const [animals, setAnimals] = useState([]);
 
     //React event bubbling, onSave and onUndo called from FormValidation05 (events upwards flow)
@@ -31,7 +31,7 @@ export function Animals() {
         <ul>{animals.map((a) => <li>{a.name} the {a.type}</li>)}
           
         </ul>
-       <AnimalForm animal={{name:props.name, type:""}} onSave={onSave} onUndo={onUndo}/>
+       <AnimalForm animal={params} onSave={onSave} onUndo={onUndo}/>
       </>
     );
   }

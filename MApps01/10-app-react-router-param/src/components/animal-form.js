@@ -1,10 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Save, ArrowCounterclockwise} from 'react-bootstrap-icons'
 
 export function AnimalForm(props) {
 
   const [animal, setAnimal] = useState(props.animal);
 
+  //Needed A little tweeking to force set State animal
+  useEffect(() => {
+
+    setAnimal(props.animal);
+  }, [props.animal]);
+
+  
   const handleChange = (e) => {
 
     const id = e.target.id;
@@ -92,7 +99,7 @@ export function AnimalForm(props) {
                   </div>
                 </div>
                 <div className="col-sm-4">
-                  <label htmlFor="age" className="form-label">Type</label>
+                  <label htmlFor="age" className="form-label">Age</label>
                   <input type="number" className="form-control" id="age" value={animal.age} onChange={handleChange} required/>
                   <div className="invalid-feedback">
                     What is the age of your pet?
