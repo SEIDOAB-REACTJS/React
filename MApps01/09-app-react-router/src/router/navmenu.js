@@ -17,7 +17,13 @@ export function NavMenu() {
                 <LinkContainer to="/about">
                     <Nav.Link>About</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/music">
+                    <Nav.Link>Music</Nav.Link>
+                </LinkContainer>
             <NavDropdown title="Pages" id="basic-nav-dropdown">
+                <LinkContainer to="/animals">
+                    <NavDropdown.Item>Animals</NavDropdown.Item>
+                </LinkContainer>
                 <LinkContainer to="/page1">
                     <NavDropdown.Item>Page1 New</NavDropdown.Item>
                 </LinkContainer>

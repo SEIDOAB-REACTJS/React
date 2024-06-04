@@ -1,4 +1,5 @@
 import './App.css';
+import './css/grid.css';
 import { BrowserRouter} from 'react-router-dom';
 
 import Footer from './components/footer';
