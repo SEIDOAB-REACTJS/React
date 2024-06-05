@@ -21,7 +21,6 @@ export function Posts()
  
             <h2 className="pb-2 border-bottom">Blog</h2>
             <Outlet/>
-
         </div>
     );
 }

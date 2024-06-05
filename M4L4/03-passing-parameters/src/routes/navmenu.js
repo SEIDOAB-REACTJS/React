@@ -35,7 +35,7 @@ export default function NavMenu() {
               <LinkContainer to="/page1/paramVal1" >
                 <NavDropdown.Item>Page1 with one parameter</NavDropdown.Item>
               </LinkContainer>
-              <LinkContainer to="/page1/paramVal1/paramVal2" >
+              <LinkContainer to="/page1/Martin/Lenart" >
                 <NavDropdown.Item>Page1 with several parameter</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/page2">
