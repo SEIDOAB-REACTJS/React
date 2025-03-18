@@ -15,7 +15,7 @@ export function Home() {
       (async () => {
         console.log('componentDidMount');
         
-        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
         const info = await service.readInfoAsync();
         setWapiInfo(info);
       })();

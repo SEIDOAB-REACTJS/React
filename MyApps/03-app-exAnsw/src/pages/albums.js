@@ -15,7 +15,7 @@ export function Albums(props) {
 
     //To pre-load with filtered albums 
     (async ()=> {
-      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       const a = await service.readAlbumsAsync (0, true, searchFilter);
       setAlbums(a);
     })();
@@ -31,7 +31,7 @@ export function Albums(props) {
     {
       console.log (`onSave invoked`);
       
-      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       const a = await service.readAlbumsAsync (0, true, e.searchFilter);
 
       setAlbums(a);

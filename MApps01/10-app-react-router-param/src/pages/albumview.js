@@ -12,7 +12,7 @@ export function AlbumView() {
 
     (async () => {
 
-        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
         const a = await service.readAlbumAsync (params.id)
 
         setAlbums(a)

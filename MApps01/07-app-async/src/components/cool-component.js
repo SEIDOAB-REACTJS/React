@@ -8,7 +8,7 @@ import musicService from '../services/music-group-service';
 export function CoolComp() {
 
   //example of using library service
-  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+  const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
 
   const [imgClicked, setImgClicked] = React.useState();
   const [artists, setArtists] = useState({});
@@ -17,7 +17,7 @@ export function CoolComp() {
 
     (async () => {
 
-      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       const serviceData = await service.readArtistsAsync(0);
 
       setArtists(serviceData);

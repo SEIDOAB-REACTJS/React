@@ -4,7 +4,7 @@ import musicService from '../services/music-group-service';
 export function WebApiListAsyncF02() {
 
   const [wapiData, setWapiData] = useState();
-  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+  const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
  
   useEffect(() => {
       //equvalent to componentDidMount
@@ -14,7 +14,7 @@ export function WebApiListAsyncF02() {
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
-        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
         const data = await service.readAlbumsAsync(0);
         setWapiData(data);
       })();}

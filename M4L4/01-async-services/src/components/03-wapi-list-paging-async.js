@@ -14,7 +14,7 @@ export function WebApiListPagingAsyncF03() {
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
-        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
         const data = await service.readAlbumsAsync(0);
         setWapiData(data);
       })();}
@@ -25,7 +25,7 @@ export function WebApiListPagingAsyncF03() {
 
     if (pageNr < wapiData.pageCount-1){
     
-      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       const data = await service.readAlbumsAsync(pageNr+1);
       
       setWapiData(data);

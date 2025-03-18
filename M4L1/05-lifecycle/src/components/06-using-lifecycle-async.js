@@ -4,7 +4,7 @@ import musicService from '../services/music-group-service';
 export function ReadWebApiFunc06() {
 
   const [wapiInfo, setWapiInfo] = useState();
-  const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+  const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
  
   useEffect(() => {
       //equvalent to componentDidMount
@@ -14,7 +14,7 @@ export function ReadWebApiFunc06() {
       //Immediately-Invoked Function Expressions (IIFE), pronounced "iffy"
       //(async () => {})()
       (async () => {
-        const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+        const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
         const info = await service.readInfoAsync();
         setWapiInfo(info);
       })();}
@@ -50,7 +50,7 @@ export class ReadWebApiClass06 extends Component {
   constructor(props) {
     super(props);          //Needs to be the 1st call
 
-    this.service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+    this.service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
 
     //states, in class component, initialized, here with an empty object
     this.state = {wapiInfo: {}}
@@ -76,7 +76,7 @@ export class ReadWebApiClass06 extends Component {
     (async () => {
       console.log('componentDidMount');
       
-      const service = new musicService(`https://appmusicwebapinet8.azurewebsites.net/api`);
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       const info = await service.readInfoAsync();
       this.setState({wapiInfo: info});
     })();
