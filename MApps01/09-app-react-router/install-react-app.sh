@@ -1,8 +1,8 @@
 #!/bin/bash
 #don't forget to make this script file executable by the comand
-#chmod u+x ./file-name.sh
+#sudo chmod u+x ./install-react-app.sh
 
-#now yo can execute by typing ./file-name.sh
+#now yo can execute by typing ./install-react-app.sh
 
 #checks if a parameter was given
 if [ $# -ne 1 ]; then
@@ -16,10 +16,10 @@ cd $1
 
 
 #install react-router-dom and react-bootstrap
-npm install react-router-dom
+npm install react-router-dom@6
 npm install react-bootstrap bootstrap
-npm install react-bootstrap-icons
 npm install react-router-bootstrap
+npm install react-bootstrap-icons
 
 npm start
 
