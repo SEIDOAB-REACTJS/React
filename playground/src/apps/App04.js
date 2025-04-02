@@ -1,6 +1,7 @@
 import { seedGenerator } from '../services/seido-helpers';
 import Person from '../models/person';
 import Animal from '../models/animal';
+import { Helloworld } from '../plays/play04/components/helloworld';
 
 //../plays/play04/components
 
@@ -12,6 +13,7 @@ export function App04_01() {
 
   return (
     <>
+    <Helloworld/>
     </>
   );}
 

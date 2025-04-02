@@ -1,6 +1,7 @@
 import { seedGenerator } from '../services/seido-helpers';
 import Person from '../models/person';
 import Animal from '../models/animal';
+import { Helloworld } from '../plays/play05/components/helloworld';
 
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
@@ -11,6 +12,7 @@ export function App05_01() {
 
   return (
     <>
+    <Helloworld/>
     </>
   );}
 

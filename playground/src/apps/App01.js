@@ -1,8 +1,8 @@
 import { seedGenerator } from '../services/seido-helpers';
 import Person from '../models/person';
 import Animal from '../models/animal';
+import { Helloworld } from '../plays/play01/components/helloworld';
 
-//../plays/play01/components
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
 //You will notice React in Dev mode mounts the components twice.
@@ -12,6 +12,7 @@ export function App01_01() {
 
   return (
     <>
+    <Helloworld/>
     </>
   );}
 
