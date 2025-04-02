@@ -18,7 +18,7 @@ export function App02_01() {
 export function App02_02() {
   return (
     <>
-    <PropsFunc01/>
+    <PropsFunc01 name="Hemronie" friend="Sara"/>
     <PropsClass01/>
     </>
     );}

@@ -5,22 +5,20 @@ import React, { Component } from 'react'
 //defaultProps is a static defined property by React
 //Func and class components set defaultProps in the same way. 
 export function PropsFunc02(props) {
+
+  const name = props.name || 'Asterix';
+  const friend = props.friend || 'Obelix';
+
   return (
     <>
     <h1>PropsFunc02</h1>
     <p>
-    My name is <em>{props.name}</em>.&nbsp;
-    My friend is <em>{props.friend}</em>.
+    My name is <em>{name}</em>.&nbsp;
+    My friend is <em>{friend}</em>.
   </p>
   </>
   )
 }
-
-PropsFunc02.defaultProps = {
-  name: 'Asterix',
-  friend: 'Obelix',
-};
-
 
 export class PropsClass02a extends Component {
   render() {
