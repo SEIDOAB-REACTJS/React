@@ -1,7 +1,9 @@
 import { seedGenerator } from '../services/seido-helpers';
 import Person from '../models/person';
 import Animal from '../models/animal';
-import { Helloworld } from '../plays/play01/components/helloworld';
+
+import {Helloworld} from "../plays/play01/components/helloworld.js";
+import { Colorboxes } from '../plays/play01/components/colorboxes.js';
 
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
@@ -17,9 +19,13 @@ export function App01_01() {
   );}
 
 export function App01_02() {
+  const mycolors = ["Red", "Blue"];
 
   return (
     <>
+    <Colorboxes colors={["Red", "Blue"]}/>
+    <Colorboxes colors={["Red", "Orange", "Green", "Yellow", "Blue"]}/>
+    <Colorboxes />
     </>
   );}
 
