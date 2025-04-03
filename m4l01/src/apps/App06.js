@@ -1,6 +1,7 @@
 import '../css/flexbox_5.css'
 import { Cards01 } from '../lesson-steps/06-cards-exercise/components/cards01';
 import { Cards02 } from '../lesson-steps/06-cards-exercise/components/cards02';
+import { Cards03 } from '../lesson-steps/06-cards-exercise/components/cards03';
 
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
@@ -20,6 +21,13 @@ export function App06_02() {
   return (
     <>
     <Cards02 imgs={['img1.png', 'img3.png']}/>
+    </>
+    );}
+
+export function App06_03() {
+  return (
+    <>
+    <Cards03 imgs={['img1.png', 'img3.png']} titles={['Hola', 'Yabadoo']}/>
     </>
     );}
 
