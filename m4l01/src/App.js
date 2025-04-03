@@ -10,7 +10,7 @@ import {App06_01, App06_02, App06_03} from './apps/App06';
 
 function App() {
   return (
-      <App06_03/>
+      <App06_01/>
   );
 }
 
