@@ -1,6 +1,6 @@
 import '../lesson-steps/09-app-react-router/css/grid.css';
 
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router';
 
 import Footer from '../lesson-steps/09-app-react-router/components/footer';
 import Header from '../lesson-steps/09-app-react-router/components/header';

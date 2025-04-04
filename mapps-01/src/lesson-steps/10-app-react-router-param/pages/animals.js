@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 //import Animal from '../models/animal';
 import {AnimalForm} from '../components/animal-form';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 export function Animals() {
 
