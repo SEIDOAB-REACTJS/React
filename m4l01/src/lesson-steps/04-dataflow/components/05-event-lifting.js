@@ -15,7 +15,7 @@ export function GreetQuoteFunc05() {
 
   return (
     <>
-    <GreetingsFunc01a timeOfDay="evening" name="Harry" greetings="Have a wounderful evening" onClick={onClick}/>
+    <GreetingsFunc01a timeOfDay="evening" name="Harry" greetings="Have a wounderful evening" onClick={onClick} onToDClick={onClick}/>
     <QuoteListFunc02a quotes={_seeder.allQuotes} title="Some quotes for you Harry" onClick={onClick}/>
     </>
   )

@@ -4,7 +4,7 @@ import { QuoteListClass02a, QuoteListFunc02a } from './02a-quote-lists-event';
 
 import { uniqueId, seedGenerator } from '../../../services/seido-helpers';
 
-export function GreetQuoteFunc07() {
+export function GreetQuoteFunc08() {
 
   const _seeder = new seedGenerator();
 

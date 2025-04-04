@@ -19,7 +19,13 @@ export function GreetQuoteFunc06() {
   //Eventhandler, in func component
   const onClick = (e) => {
       console.log(`GreetQuoteFunc06 clicked: ${e.target}`);
-  }
+
+      const newName = _seeder.fullName;
+      setName(newName);
+
+      const newQuotes = _seeder.allQuotes.filter(s => s.quote.includes("love"));
+      setQuotes(newQuotes);
+    }
 
   //In State lifting the states are kept in the parent and passed as props to the children
   return (
