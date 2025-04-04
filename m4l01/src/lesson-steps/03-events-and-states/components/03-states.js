@@ -7,7 +7,8 @@ export function TextCounterFunc03(props) {
   //const text = props.text;
 
   //states in func component, use const and hook useState, one hook for each state property
-  const [text, setText] = useState (props.text || "");
+  //const [text, setText] = useState (props.text || "");
+  const [text, setText] = useState (props.text || _seeder.latinWords(4).join(' '));
   const [anotherState, setAnotherState] = useState ({}); //Example if you need another state property
   
   //Eventhandler, in func component
@@ -30,10 +31,6 @@ export function TextCounterFunc03(props) {
     </>
   )
 }
-
-TextCounterFunc03.defaultProps = {
-  text: _seeder.latinWords(4).join(' ')
-};
 
 
 export class TextCounterClass03 extends Component {

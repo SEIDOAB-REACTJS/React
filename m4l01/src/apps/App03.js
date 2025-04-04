@@ -10,8 +10,8 @@ import { ColorBoxesClass04a, ColorBoxesFunc04a } from '../lesson-steps/03-events
 export function App03_01() {
   return (
     <>
+      <TextCounterFunc01 />
       <TextCounterFunc01 text="Hello, my name is Martin"/>
-      <TextCounterClass01/>
     </>
     );}
 
@@ -20,9 +20,7 @@ export function App03_02() {
   return (
     <>
     <TextCounterFunc02/>
-    <TextCounterClass02/>
     <TextCounterFunc02 text="Hello, my name is Martin"/>
-    <TextCounterClass02 text="Hello, my name is Martin"/>
     </>
     );}
 
@@ -31,9 +29,7 @@ export function App03_03() {
   return (
     <>
     <TextCounterFunc03/>
-    <TextCounterClass03/>
     <TextCounterFunc03 text="Hello, my name is Martin"/>
-    <TextCounterClass03 text="Hello, my name is Martin"/>
     </>
     );}
 
@@ -43,7 +39,6 @@ export function App03_04() {
   return (
     <>
     <ColorBoxesFunc04/>
-    <ColorBoxesClass04/>
     </>
     );}
 

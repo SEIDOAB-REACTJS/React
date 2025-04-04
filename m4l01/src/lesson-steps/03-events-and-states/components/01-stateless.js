@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export function TextCounterFunc01(props) {
-  const text = props.text;
+  const text = props.text || 'Count me as I type';
 
   return (
     <>
@@ -13,10 +13,6 @@ export function TextCounterFunc01(props) {
     </>
   )
 }
-
-TextCounterFunc01.defaultProps = {
-    text: 'Count me as I type',
-  };
 
 
 export class TextCounterClass01 extends Component {

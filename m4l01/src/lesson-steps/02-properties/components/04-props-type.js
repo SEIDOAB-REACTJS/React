@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export function ColorBoxes04(props) {
-	const c = props.color;
-	
+	const c = props.color || ['red', 'orange', 'green', 'yellow', 'blue'];
+	const t = props.title || 'Hello from ColorBox04';
 	return (
     <>
-    <h1>{props.title}</h1>
+    <h1>{t}</h1>
 	<div className="FlexWrap">
 		{c?.includes('red') && <div className="FlexItem Red">Red box with nr: {props.number}</div>}
 		{c?.includes('orange') && <div className="FlexItem Orange">Orange box with nr: {props.number}</div>}
@@ -22,10 +22,6 @@ export function ColorBoxes04(props) {
     </> )
 }
 
-ColorBoxes04.defaultProps = {
-	title: 'Hello from ColorBox04',
-	color: ['red', 'orange', 'green', 'yellow', 'blue']
-  };
 
 ColorBoxes04.propTypes = {
 	title: PropTypes.string,

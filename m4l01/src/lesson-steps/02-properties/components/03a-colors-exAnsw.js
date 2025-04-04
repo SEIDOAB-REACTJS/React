@@ -20,7 +20,7 @@ export function ColorBoxes01() {
 }
 
 export function ColorBoxes02(props) {
-	const c = props.color;
+	const c = props.color || 'all'
 
 	return (
     <>
@@ -40,9 +40,6 @@ export function ColorBoxes02(props) {
     </> )
 }
 
-ColorBoxes02.defaultProps = {
-	color: 'all'
-  };
 
 export function ColorBoxes03(props) {
 	const c = props.color;

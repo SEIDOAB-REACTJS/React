@@ -1,7 +1,7 @@
 import '../css/flexbox_5.css'
 import { Cards01 } from '../lesson-steps/06-cards-exercise/components/cards01';
 import { Cards02 } from '../lesson-steps/06-cards-exercise/components/cards02';
-import { Cards03 } from '../lesson-steps/06-cards-exercise/components/cards03';
+import { Cards03 } from '../lesson-steps/06-cards-exercise-Answ/components/cards03';
 
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
