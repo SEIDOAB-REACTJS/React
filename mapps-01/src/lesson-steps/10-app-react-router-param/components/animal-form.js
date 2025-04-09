@@ -14,7 +14,8 @@ export function AnimalForm(props) {
     console.log("useEffect");
   }, [props.animal]);
 
-  
+    //props.animal dependency array: The effect runs when props.animal change
+
   const handleChange = (e) => {
 
     const id = e.target.id;

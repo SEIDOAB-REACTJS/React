@@ -20,6 +20,8 @@ export function WebApiInfoAsyncF01() {
       })();}
   , []);
 
+  //Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
+
   const onClick = async () => {
 
     const info = await service.readInfoAsync();

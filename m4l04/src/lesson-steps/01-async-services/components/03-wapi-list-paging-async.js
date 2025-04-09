@@ -19,7 +19,8 @@ export function WebApiListPagingAsyncF03() {
         setWapiData(data);
       })();}
 
-  ,[]); //dependency on pageNr means useEffect will run each time pageNr change
+  ,[]); 
+  //Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
 
   const onClick = async () => {
 

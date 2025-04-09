@@ -35,6 +35,9 @@ export function AlbumsWebApiList() {
      
      readWebApi();
   }, [service])
+
+   //service dependency array: The effect runs when service change (Context has changed)
+
   //#endregion
 
   const onView = (e) => 
@@ -67,6 +70,9 @@ export function AlbumsWebApiView() {
       }
       readWebApi(id);
   }, [service,id])
+
+  //[service,id] dependency array: The effect runs when service or id change
+
   //#endregion
 
   const onEdit = (e) => 
@@ -110,6 +116,8 @@ export function AlbumsWebApiView() {
         }
         readWebApi(id);
     }, [service,id])
+    //[service,id] dependency array: The effect runs when service or id change
+
     //#endregion
 
     //event handlers can be async, so it is straight forward to save async

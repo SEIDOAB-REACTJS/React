@@ -24,7 +24,8 @@ export function Musicalbums(props) {
 
     setFilter(props.searchFilter);   
   }, [props])
-  
+    //props dependency array: The effect runs when props change
+
 
   const onSearch = async (e) => {
     e.preventDefault();  //In case the button is of type submit (default for a button inside a form)

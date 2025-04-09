@@ -23,6 +23,7 @@ export function CoolComp() {
       setArtists(serviceData);
     })()
   }, [])
+  //Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
 
 
   const onClick = async (e) => {

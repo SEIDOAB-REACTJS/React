@@ -17,7 +17,13 @@ export function ReadWebApiFunc06() {
       setWapiInfo(info);
     })()
 
-  });
+  },[]);
+  
+/*
+  No dependency array: The effect runs after every render. useEffect(() => { // Runs on every render });
+  Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
+  Specific dependencies: The effect runs when any of the specified dependencies change. useEffect(() => { // Runs on the first render and whenever 'prop' or 'state' changes }, [prop, state]);
+*/
 
 
  /*
@@ -33,9 +39,10 @@ export function ReadWebApiFunc06() {
         const info = await service.readInfoAsync();
         setWapiInfo(info);
       })();}
-  , []); //Empty array , []); as dependancies causes useEffect to run only once at component mount
-  //);   // ); no dependancies causes useEffect to run at every rerender. 
-         // as useEffect also update state setWapiInfo(...) which in turn causes render it becomes in this case an endless loop
+
+  No dependency array: The effect runs after every render. useEffect(() => { // Runs on every render });
+  Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
+  Specific dependencies: The effect runs when any of the specified dependencies change. useEffect(() => { // Runs on the first render and whenever 'prop' or 'state' changes }, [prop, state]);
 */
   const onClick = async () => {
 

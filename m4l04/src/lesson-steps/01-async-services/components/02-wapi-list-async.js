@@ -19,6 +19,8 @@ export function WebApiListAsyncF02() {
         setWapiData(data);
       })();}
   , []);
+  
+  //Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
 
   const onClick = async () => {
 

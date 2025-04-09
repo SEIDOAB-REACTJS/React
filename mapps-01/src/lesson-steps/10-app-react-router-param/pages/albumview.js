@@ -19,6 +19,7 @@ export function AlbumView() {
     })();
 
   }, [params.id])
+  //params.id dependency array: The effect runs when params.id change
 
   return (
     <>
