@@ -25,11 +25,17 @@ Animal.prototype = {
         return a;
     },
 
-    seedMany: function (_sgen, nrOfItems) {
+    seedMany: function (_sgen, nrOfItems, kind) {
         const animals = [];
         
         for (let index = 0; index < nrOfItems; index++) {
             const p = new Animal().seed(_sgen);
+
+            if (kind) 
+            {
+                p.kind = kind;
+            }
+            
             animals.push(p);        
           }
         return animals;
@@ -44,6 +50,10 @@ console.log(a1);
 const a2 = new Animal().seedMany(_sgen, 10);
 console.log(a2);
 
+const a3 = new Animal().seedMany(_sgen, 10, "Zebra");
+console.log(a3);
+
+const i =0;
 
 
  
