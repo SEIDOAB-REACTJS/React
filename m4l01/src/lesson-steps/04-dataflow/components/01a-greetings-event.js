@@ -12,6 +12,8 @@ export function GreetingsFunc01a(props) {
     const onClick = (e) => {
         console.log(`Func component clicked: ${e.target}`);
 
+        e.personName = e.target.innerText;
+
         //event lifting. After I am done locally in my component I call the onClick in props, if any
         if (props.onClick)
             props.onClick(e);

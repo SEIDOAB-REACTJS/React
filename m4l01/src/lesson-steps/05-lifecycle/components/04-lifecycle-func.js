@@ -11,7 +11,7 @@ export function TimeTickerFunc04() {
 
    return () => {
     //equvalent to componentWillUnmount
-    console.log('TimeDisplay componentDidUnount');
+    console.log('TimeDisplay componentDidUnmount');
    }
 }, []);
 

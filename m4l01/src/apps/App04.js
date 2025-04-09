@@ -3,6 +3,7 @@ import '../css/flexbox_5.css'
 import { GreetingsFunc01, GreetingsClass01 } from '../lesson-steps/04-dataflow/components/01-greetings';
 import { GreetingsFunc01a, GreetingsClass01a } from '../lesson-steps/04-dataflow/components/01a-greetings-event';
 import { QuoteListFunc02, QuoteListClass02  } from '../lesson-steps/04-dataflow/components/02-quote-lists';
+import { QuoteListFunc02a  } from '../lesson-steps/04-dataflow/components/02a-quote-lists-event';
 import { GreetQuoteFunc03, GreetQuoteClass03 } from '../lesson-steps/04-dataflow/components/03-higher-level-components';
 import { GreetQuoteFunc04, GreetQuoteClass04 } from '../lesson-steps/04-dataflow/components/04-higher-level-props';
 import { GreetQuoteFunc05, GreetQuoteClass05 } from '../lesson-steps/04-dataflow/components/05-event-lifting';
@@ -15,14 +16,14 @@ export function App04_01() {
   return (
     <>
       <GreetingsFunc01/>
-      <GreetingsFunc01a/>
+      <GreetingsFunc01a name="Martin"/>
     </>
     );}
 
 export function App04_02() {
   return (
     <>
-      <QuoteListFunc02/>
+      <QuoteListFunc02a title="God Morning" quotes={[{quote: "Hello World", author: "Martin"}]}/>
     </>
     );}
     
@@ -30,7 +31,9 @@ export function App04_02() {
 export function App04_03() {
   return (
     <>
-    <GreetQuoteFunc03/>
+    <GreetQuoteFunc03 name="Nils"/>
+    <GreetQuoteFunc03 name="Gustav"/>
+    <GreetQuoteFunc03 name="Elin"/>
     </>
     );}
 

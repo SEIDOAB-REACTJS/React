@@ -3,9 +3,24 @@ import musicService from '../../../services/music-group-service';
 
 export function ReadWebApiFunc06() {
 
-  const [wapiInfo, setWapiInfo] = useState();
+  const [wapiInfo, setWapiInfo] = useState({});
   const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
- 
+
+  useEffect(() => {
+    //equvalent to componentDidMount
+    console.log('componentDidMount');
+
+    (async () => {
+
+      const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
+      const info = await service.readInfoAsync();
+      setWapiInfo(info);
+    })()
+
+  });
+
+
+ /*
   useEffect(() => {
       //equvalent to componentDidMount
       console.log('componentDidMount');
@@ -21,7 +36,7 @@ export function ReadWebApiFunc06() {
   , []); //Empty array , []); as dependancies causes useEffect to run only once at component mount
   //);   // ); no dependancies causes useEffect to run at every rerender. 
          // as useEffect also update state setWapiInfo(...) which in turn causes render it becomes in this case an endless loop
-
+*/
   const onClick = async () => {
 
     const info = await service.readInfoAsync();

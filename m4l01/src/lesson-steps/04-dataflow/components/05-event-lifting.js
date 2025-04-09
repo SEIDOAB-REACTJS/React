@@ -13,9 +13,13 @@ export function GreetQuoteFunc05() {
       console.log(`GreetQuoteFunc05 clicked: ${e.target}`);
   }
 
+  const onToDClick = (e) => {
+    console.log(`onToDClick clicked: ${e.target}`);
+  }
+
   return (
     <>
-    <GreetingsFunc01a timeOfDay="evening" name="Harry" greetings="Have a wounderful evening" onClick={onClick} onToDClick={onClick}/>
+    <GreetingsFunc01a timeOfDay="evening" name="Harry" greetings="Have a wounderful evening" onClick={onClick} onToDClick={onToDClick}/>
     <QuoteListFunc02a quotes={_seeder.allQuotes} title="Some quotes for you Harry" onClick={onClick}/>
     </>
   )
