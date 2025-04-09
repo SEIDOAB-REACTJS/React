@@ -1,4 +1,4 @@
-import { uniqueId } from '../services/seido-helpers';
+import { uniqueId } from '../services/seido-helpers.js';
 
 export default function Person() {
 
@@ -42,6 +42,6 @@ export default function Person() {
         persons.push(p);        
       }
 
-        return persons;
+      return persons;
     }
   }
