@@ -127,8 +127,9 @@ export function FormHandleChange04(props) {
 
 
 /* Exercise
-1. Modify the animal form to a controller form by 
+1. Modify the animal form to a controlled form by 
   - add props to allow you to change the properties of an animal
+  - add animal as a state
   - set value in the <input> tags
   - adding a change handler
   - add an onUndo handler
