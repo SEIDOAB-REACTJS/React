@@ -7,11 +7,10 @@ export function Form01(props) {
   { 
     const fname = document.querySelector("#firstName").value;
     e.fname = fname;
+
     //We are going to add validation here later 
-    props.onSave(e);
-
-
-
+    if (props.onSave) 
+      props.onSave(e);
   }  
 
   return (

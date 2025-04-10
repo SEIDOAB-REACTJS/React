@@ -1,5 +1,5 @@
-import {SearchInPage02} from '../lesson-steps/04-form-search/components/02-search-in-page';
-import {SearchInModal03} from '../lesson-steps/04-form-search/components/03-search-in-modal';
+import {SearchInPage02} from '../lesson-steps/04-form-search-async/components/02-search-in-page';
+import {SearchInModal03} from '../lesson-steps/04-form-search-async/components/03-search-in-modal';
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
 //You will notice React in Dev mode mounts the components twice.

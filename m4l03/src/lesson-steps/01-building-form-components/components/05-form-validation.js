@@ -160,3 +160,7 @@ export function FormValidation05(props) {
   </>
   )
 }
+
+/* Exercise
+1. Add validation to the form
+*/

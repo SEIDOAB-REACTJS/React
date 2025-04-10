@@ -20,7 +20,9 @@ export function FormUncontrolled02(props) {
     friend.address.country = document.querySelector('#country').value;
 
     e.person = friend;
-    props.onSave(e);
+
+    if (props.onSave) 
+      props.onSave(e);
   }  
 
   return (
@@ -87,3 +89,9 @@ export function FormUncontrolled02(props) {
     </>
   )
 }
+
+
+/* Exercise
+1. Make an uncontrolled form that allows the user to set the details of an animal. 
+   That is name, type, age,
+*/

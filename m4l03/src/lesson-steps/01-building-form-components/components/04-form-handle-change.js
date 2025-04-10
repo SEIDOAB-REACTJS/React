@@ -47,14 +47,18 @@ export function FormHandleChange04(props) {
   const onSave = (e) => {
     //We are going to add validation here later 
     e.person = friend;
-    props.onSave(e);
+
+    if (props.onSave) 
+      props.onSave(e);
   }
   const onUndo = (e) => {
     console.log(`onUndo invoked`);
 
     setFriend(props.friend);
     e.person = props.friend;
-    props.onUndo(e);
+
+    if (props.onUndo)
+      props.onUndo(e);
   }
   return (
     <>
@@ -120,3 +124,12 @@ export function FormHandleChange04(props) {
     </>
   )
 }
+
+
+/* Exercise
+1. Modify the animal form to a controller form by 
+  - add props to allow you to change the properties of an animal
+  - set value in the <input> tags
+  - adding a change handler
+  - add an onUndo handler
+*/
