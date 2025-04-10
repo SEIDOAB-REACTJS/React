@@ -20,6 +20,13 @@ export default function Animal() {
     },
     
     seedMany: function (_sgen, nrOfItems) {
-      return _sgen.toArray(nrOfItems, this.createRandom)
+      const animals = [];
+      
+      for (let index = 0; index < nrOfItems; index++) {
+        const p = new Animal().seed(_sgen);
+        animals.push(p);        
+      }
+
+        return animals;
     }
   }
