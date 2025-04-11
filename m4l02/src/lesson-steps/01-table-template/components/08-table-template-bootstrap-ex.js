@@ -1,9 +1,9 @@
 import React from 'react'
 
-export function TableTemplate01() {
+export function TableTemplate08() {
   return (
     <>
-      <h1>Table template using bootstrap 01</h1>
+      <h1>Table template using bootstrap 08</h1>
       <h2>Bootstrap starting point</h2>
 
       <div className="row mb-2 text-center">

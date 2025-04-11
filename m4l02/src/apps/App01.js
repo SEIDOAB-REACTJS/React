@@ -9,6 +9,7 @@ import {TableTemplate03} from '../lesson-steps/01-table-template/components/03-t
 import {TableTemplate04} from '../lesson-steps/01-table-template/components/04-table-template-events';
 import {UsingTableTemplate05} from '../lesson-steps/01-table-template/components/05-using-table-template';
 import {UsingTableTemplate06, TableTemplate06} from '../lesson-steps/01-table-template/components/06-using-table-template-paging';
+import {UsingTableTemplate07, TableTemplate07} from '../lesson-steps/01-table-template/components/07-using-table-template-paging-async';
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
 //You will notice React in Dev mode mounts the components twice.
@@ -72,5 +73,13 @@ export function App01_04() {
       <>
         <UsingTableTemplate06 pageSize={10}/>
         <UsingTableTemplate06 pageSize={5}/>
+      </>
+    );}
+
+  export function App01_07() {
+    return (
+      <>
+        <UsingTableTemplate07 pageSize={10}/>
+        <UsingTableTemplate07 pageSize={5}/>
       </>
     );}
