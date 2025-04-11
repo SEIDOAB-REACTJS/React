@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect, setState } from "react";
 import musicService from '../../../services/music-group-service';
 
-export function ReadWebApiFunc06() {
+export function ReadWebApiFunc07() {
 
   const [wapiInfo, setWapiInfo] = useState({});
   const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
@@ -68,7 +68,7 @@ export function ReadWebApiFunc06() {
 }
 
 
-export class ReadWebApiClass06 extends Component {
+export class ReadWebApiClass07 extends Component {
   constructor(props) {
     super(props);          //Needs to be the 1st call
 

@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 export function UseBootstrapModal02() {
 
     const [show, setShow] = useState(false);
+
     const showModal = () => setShow(true);
 
     const onSave = (e) => {

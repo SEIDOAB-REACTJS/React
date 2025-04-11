@@ -1,10 +1,12 @@
 import '../css/flexbox_5.css'
 
 import { LifeCycle01 } from '../lesson-steps/05-lifecycle/components/01-lifecycle-class';
+import { LifeCycleLogger02 } from '../lesson-steps/05-lifecycle/components/02-lifecycle-log-class';
 import { ClassInheritance03 } from '../lesson-steps/05-lifecycle/components/03-class-inheritance';
-import { TimeTickerFunc04 } from '../lesson-steps/05-lifecycle/components/04-lifecycle-func';
-import { TimeTickerFunc05, TimeTickerClass05, TimeTickerClass05a } from '../lesson-steps/05-lifecycle/components/05-useEffect';
-import { ReadWebApiFunc06, ReadWebApiClass06} from '../lesson-steps/05-lifecycle/components/06-useEffect-async';
+import { UseEffect04 } from '../lesson-steps/05-lifecycle/components/04-lifecycle-func';
+import { UseEffect05 } from '../lesson-steps/05-lifecycle/components/05-useEffect';
+import { TimeTickerFunc06, TimeTickerClass06, TimeTickerClass06a } from '../lesson-steps/05-lifecycle/components/06-useEffect-sync';
+import { ReadWebApiFunc07, ReadWebApiClass07} from '../lesson-steps/05-lifecycle/components/07-useEffect-async';
 
 //https://legacy.reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects
 //You will notice React in Dev mode mounts the components twice.
@@ -19,8 +21,16 @@ export function App05_01() {
     </>
     );}
 
-//Using inheritance to make a parent class that logs lifecycles
+//logs lifecycles
 export function App05_02() {
+  return (
+    <>
+    <LifeCycleLogger02/>
+    </>
+    );}
+
+//Using inheritance to make a parent class that logs lifecycles
+export function App05_03() {
   return (
     <>
     <ClassInheritance03/>
@@ -28,29 +38,37 @@ export function App05_02() {
     );}
 
 //Lifecyle in functional component
-export function App05_03() {
-  return (
-    <>
-    <TimeTickerFunc04/>
-    </>
-    );}
-
-
-//Using Lifecyles example
 export function App05_04() {
   return (
     <>
-    <TimeTickerFunc05/>
-    <TimeTickerClass05/>
-    <TimeTickerClass05a/>
+    <UseEffect04/>
     </>
     );}
 
-//Using Lifecyles async example
+
+//Studying useEffect
 export function App05_05() {
   return (
     <>
-    <ReadWebApiFunc06/>
-    <ReadWebApiClass06/> 
+    <UseEffect05/>
+    </>
+    );}
+
+//Using useEffect sync example
+export function App05_06() {
+  return (
+    <>
+    <TimeTickerFunc06/>
+    <TimeTickerClass06/>
+    <TimeTickerClass06a/>
+    </>
+    );}
+
+//Using useEffect async example
+export function App05_07() {
+  return (
+    <>
+    <ReadWebApiFunc07/>
+    <ReadWebApiClass07/> 
     </>
     );}

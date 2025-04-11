@@ -1,12 +1,12 @@
 import React from 'react'
-import {Save, ArrowCounterclockwise} from 'react-bootstrap-icons'
+import {SaveFill, ArrowCounterclockwise} from 'react-bootstrap-icons'
 
 export function Form01(props) {
 
   const onSave = (e) => 
   { 
     const fname = document.querySelector("#firstName").value;
-    e.fname = fname;
+    e.person = {fname: fname}
 
     //We are going to add validation here later 
     if (props.onSave) 
@@ -19,7 +19,7 @@ export function Form01(props) {
         <h1>
           Edit details of my friend
           <button className="btn btn-primary-outline" onClick={onSave}>
-            <Save className="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"/>
+            <SaveFill className="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"/>
           </button>
           <button className="btn btn-primary-outline" onClick={props.onUndo}>
             <ArrowCounterclockwise className="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"/>

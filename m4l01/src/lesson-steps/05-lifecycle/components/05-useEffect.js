@@ -1,115 +1,43 @@
 import React, { Component, useState, useEffect, setState } from "react";
+import { uniqueId, seedGenerator } from '../../../services/seido-helpers';
 
-export function TimeTickerFunc05() {
-  const [currentTime, setCurrentTime] = useState(new Date());
+export function UseEffect05() {
+  const _seeder = new seedGenerator();
+
+  const [pageNr, setPageNr] = useState(0);
+  const [name, setName] = useState(_seeder.petName);
 
   useEffect(
-    //equvalent to componentDidMount
     () => {
-    console.log('componentDidMount');
+    console.log(`useEffect executed. pageNr: ${pageNr}, name: ${name}`);
     
-    const timer = setInterval(() => {
-
-      //every 1 second will setCurrentTime be invoked, updating the component state
-      setCurrentTime(new Date());
-    }, 1000);
-
-
-   //equvalent to componentWillUnmount
    return () => {
-    console.log('componentWillUnmount');
+    console.log(`return useEffect executed. pageNr: ${pageNr}, name: ${name}`);}
 
-    clearInterval(timer);}
+}, );
+//}, []);
+//}, [name]);        
+//}, [pageNr]);
+//}, [pageNr, name]);
 
-}, [setCurrentTime]);
+/*
+  No dependency array: The effect runs after every render. useEffect(() => { // Runs on every render });
+  Empty dependency array: The effect runs only once after the initial render. useEffect(() => { // Runs only on the first render }, []);
+  Specific dependencies: The effect runs when any of the specified dependencies change. useEffect(() => { // Runs on the first render and whenever 'prop' or 'state' changes }, [prop, state]);
+*/
+
+  const onClickPrev = (e) => { setPageNr(pageNr - 1); }
+  const onClickNext = (e) => { setPageNr(pageNr + 1); }
+
+  const onClickChangeName = (e) => { setName(_seeder.petName); }
 
   return (
     <div>
-      <h1>Current Time</h1>
-      <p>{currentTime.toLocaleTimeString()}</p>
-      <ul>
-        <li>Hello1</li>
-        <li>Hello2</li>
-      </ul>
+      <h1>Pet name : {name}</h1>
+      <h2>Page number: {pageNr}</h2>
+      <button onClick={onClickPrev}>Prev</button>
+      <button onClick={onClickChangeName}>Change Name</button>
+      <button onClick={onClickNext}>Next</button>
     </div>
   );
-}
-
-
-export class TimeTickerClass05 extends Component {
-  constructor(props) {
-    super(props);          //Needs to be the 1st call
-
-    //states, in class component, initialized, here with an empty object
-    this.state = {currentTime: new Date()}
-  }
-
-  
-  componentDidMount() {
-    console.log('componentDidMount');
-
-    //equvalent to componentDidMount
-    this.timer = setInterval(() => {
-
-      //every 1 second will setCurrentTime be invoked, updating the component state
-      this.setState({currentTime: new Date()});
-    }, 1000);
-  }
-
-  componentWillUnmount() { 
-    console.log('componentWillUnmount');
-
-    clearInterval(this.timer);
-  }
-
-  render() {
-    return (
-    <div>
-      <h1>Current Time</h1>
-      <p>{this.state.currentTime.toLocaleTimeString()}</p>
-    </div>
-    )
-  }
-}
-
-//Showing that I need to bind this, if I use a class method, just like for events!
-export class TimeTickerClass05a extends Component {
-  constructor(props) {
-    super(props);          //Needs to be the 1st call
-
-    //states, in class component, initialized, here with an empty object
-    this.state = {currentTime: new Date()}
-
-    //Just like for an Eventhandler, need to rebind this in a class component.
-    //Try without doing below line
-    this.updateTimer = this.updateTimer.bind(this);
-  }
-
-  updateTimer() {
-
-    //every 1 second will setCurrentTime be invoked, updating the component state
-    this.setState({currentTime: new Date()});
-  }
-  
-  componentDidMount() {
-    console.log('componentDidMount');
-
-    //equvalent to componentDidMount
-    this.timer = setInterval(this.updateTimer, 1000);
-  }
-
-  componentWillUnmount() { 
-    console.log('componentWillUnmount');
-
-    clearInterval(this.timer);
-  }
-
-  render() {
-    return (
-    <div>
-      <h1>Current Time</h1>
-      <p>{this.state.currentTime.toLocaleTimeString()}</p>
-    </div>
-    )
-  }
 }
