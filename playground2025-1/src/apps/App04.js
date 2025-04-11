@@ -2,6 +2,7 @@ import { seedGenerator } from '../services/seido-helpers';
 import Person from '../models/person';
 import Animal from '../models/animal';
 import { Helloworld } from '../plays/play04/components/helloworld';
+import {UsingTableTemplate06} from '../plays/play04/components/06-using-table-template-paging-async';
 
 //../plays/play04/components
 
@@ -13,7 +14,7 @@ export function App04_01() {
 
   return (
     <>
-    <Helloworld/>
+    <UsingTableTemplate06/>
     </>
   );}
 

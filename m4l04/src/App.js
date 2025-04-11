@@ -9,7 +9,7 @@ import { App05_01 } from './apps/App05';
 
 function App() {
   return (
-    <App01_01/>
+    <App02_02/>
   );
 }
 
